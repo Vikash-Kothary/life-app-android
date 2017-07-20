@@ -1,13 +1,13 @@
 package com.vikashkothary.life.test.common;
 
+import com.vikashkothary.life.data.model.Name;
+import com.vikashkothary.life.data.model.Profile;
+import com.vikashkothary.life.data.model.Ribot;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import com.vikashkothary.life.data.model.Name;
-import com.vikashkothary.life.data.model.Profile;
-import com.vikashkothary.life.data.model.Ribot;
 
 /**
  * Factory class that makes instances of data models with random field values.

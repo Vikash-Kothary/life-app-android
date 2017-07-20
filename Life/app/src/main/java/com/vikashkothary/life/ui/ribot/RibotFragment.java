@@ -30,17 +30,22 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RibotFragment extends BaseFragment implements RibotMvpView{
+public class RibotFragment extends BaseFragment implements RibotMvpView {
 
     private static final String EXTRA_TRIGGER_SYNC_FLAG =
             "com.vikashkothary.life.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG";
 
-    @Inject RibotPresenter mRibotPresenter;
-    @Inject RibotsAdapter mRibotsAdapter;
+    @Inject
+    RibotPresenter mRibotPresenter;
+    @Inject
+    RibotsAdapter mRibotsAdapter;
 
-    @BindView(R.id.recycler_view_ribot) RecyclerView mRibotRecycler;
-    @BindView(R.id.swipe_to_refresh) SwipeRefreshLayout mSwipeToRefresh;
-    @BindView(R.id.progress) ProgressBar mProgress;
+    @BindView(R.id.recycler_view_ribot)
+    RecyclerView mRibotRecycler;
+    @BindView(R.id.swipe_to_refresh)
+    SwipeRefreshLayout mSwipeToRefresh;
+    @BindView(R.id.progress)
+    ProgressBar mProgress;
 
     /**
      * Return an Intent to start this Activity.

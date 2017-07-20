@@ -2,6 +2,8 @@ package com.vikashkothary.life.data.remote;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.util.MyGsonTypeAdapterFactory;
 
 import java.util.List;
 
@@ -10,8 +12,6 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import rx.Observable;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.util.MyGsonTypeAdapterFactory;
 
 public interface RibotsService {
 

@@ -2,15 +2,15 @@ package com.vikashkothary.life.test.common;
 
 import android.content.Context;
 
-import org.junit.rules.TestRule;
-import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
-
 import com.vikashkothary.life.LifeApplication;
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.test.common.injection.component.DaggerTestComponent;
 import com.vikashkothary.life.test.common.injection.component.TestComponent;
 import com.vikashkothary.life.test.common.injection.module.ApplicationTestModule;
+
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
+import org.junit.runners.model.Statement;
 
 /**
  * Test rule that creates and sets a Dagger TestComponent into the application overriding the

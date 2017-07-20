@@ -3,13 +3,14 @@ package com.vikashkothary.life.test.common.injection.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.vikashkothary.life.data.DataManager;
+import com.vikashkothary.life.data.remote.RibotsService;
+import com.vikashkothary.life.injection.ApplicationContext;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import com.vikashkothary.life.data.DataManager;
-import com.vikashkothary.life.data.remote.RibotsService;
-import com.vikashkothary.life.injection.ApplicationContext;
 
 import static org.mockito.Mockito.mock;
 

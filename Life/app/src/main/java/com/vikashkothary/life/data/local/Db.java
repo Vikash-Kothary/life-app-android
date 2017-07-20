@@ -3,14 +3,15 @@ package com.vikashkothary.life.data.local;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import java.util.Date;
-
 import com.vikashkothary.life.data.model.Name;
 import com.vikashkothary.life.data.model.Profile;
 
+import java.util.Date;
+
 public class Db {
 
-    public Db() { }
+    public Db() {
+    }
 
     public abstract static class RibotProfileTable {
         public static final String TABLE_NAME = "ribot_profile";
@@ -32,7 +33,7 @@ public class Db {
                         COLUMN_DATE_OF_BIRTH + " INTEGER NOT NULL, " +
                         COLUMN_AVATAR + " TEXT, " +
                         COLUMN_BIO + " TEXT" +
-                " ); ";
+                        " ); ";
 
         public static ContentValues toContentValues(Profile profile) {
             ContentValues values = new ContentValues();

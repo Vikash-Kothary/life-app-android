@@ -3,12 +3,13 @@ package com.vikashkothary.life.injection.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.vikashkothary.life.data.remote.RibotsService;
+import com.vikashkothary.life.injection.ApplicationContext;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import com.vikashkothary.life.data.remote.RibotsService;
-import com.vikashkothary.life.injection.ApplicationContext;
 
 /**
  * Provide application-level dependencies.

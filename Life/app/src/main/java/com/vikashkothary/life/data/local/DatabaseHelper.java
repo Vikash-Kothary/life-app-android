@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
+import com.vikashkothary.life.data.model.Ribot;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,7 +17,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
-import com.vikashkothary.life.data.model.Ribot;
 
 @Singleton
 public class DatabaseHelper {

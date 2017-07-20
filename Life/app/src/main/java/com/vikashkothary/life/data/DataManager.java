@@ -1,5 +1,10 @@
 package com.vikashkothary.life.data;
 
+import com.vikashkothary.life.data.local.DatabaseHelper;
+import com.vikashkothary.life.data.local.PreferencesHelper;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.data.remote.RibotsService;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,10 +12,6 @@ import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.functions.Func1;
-import com.vikashkothary.life.data.local.DatabaseHelper;
-import com.vikashkothary.life.data.local.PreferencesHelper;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.data.remote.RibotsService;
 
 @Singleton
 public class DataManager {

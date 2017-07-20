@@ -3,10 +3,10 @@ package com.vikashkothary.life.data.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.vikashkothary.life.injection.ApplicationContext;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import com.vikashkothary.life.injection.ApplicationContext;
 
 @Singleton
 public class PreferencesHelper {

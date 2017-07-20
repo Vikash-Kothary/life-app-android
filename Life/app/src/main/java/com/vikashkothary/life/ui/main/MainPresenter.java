@@ -1,5 +1,11 @@
 package com.vikashkothary.life.ui.main;
 
+import com.vikashkothary.life.data.DataManager;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.injection.ConfigPersistent;
+import com.vikashkothary.life.ui.base.BasePresenter;
+import com.vikashkothary.life.util.RxUtil;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,11 +15,6 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
-import com.vikashkothary.life.data.DataManager;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.injection.ConfigPersistent;
-import com.vikashkothary.life.ui.base.BasePresenter;
-import com.vikashkothary.life.util.RxUtil;
 
 @ConfigPersistent
 public class MainPresenter extends BasePresenter<MainMvpView> {

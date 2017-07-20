@@ -6,10 +6,8 @@
         android:icon="@mipmap/ic_launcher"
         android:title="@string/nav_home" />
 
-    <group
-        android:id="@+id/nav_type_deficiency">
-        <item
-            android:title="@string/nav_group_physical">
+    <group android:id="@+id/nav_type_deficiency">
+        <item android:title="@string/nav_group_physical">
             <menu>
                 <group>
                     <item
@@ -31,8 +29,7 @@
         <item android:title="@string/nav_group_social" />
         <item android:title="@string/nav_group_esteem" />
     </group>
-    <group
-        android:id="@+id/nav_type_growth">
+    <group android:id="@+id/nav_type_growth">
         <item
             android:icon="@mipmap/ic_launcher"
             android:title="@string/nav_group_cognitive" />

@@ -3,16 +3,17 @@ package com.vikashkothary.life.ui.base;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
-
-import timber.log.Timber;
 import com.vikashkothary.life.LifeApplication;
 import com.vikashkothary.life.injection.component.ActivityComponent;
 import com.vikashkothary.life.injection.component.ConfigPersistentComponent;
 import com.vikashkothary.life.injection.component.DaggerConfigPersistentComponent;
 import com.vikashkothary.life.injection.module.ActivityModule;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+
+import timber.log.Timber;
 
 /**
  * Abstract activity that every other Activity in this application must implement. It handles

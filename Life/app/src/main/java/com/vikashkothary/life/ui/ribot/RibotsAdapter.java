@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.vikashkothary.life.R;
+import com.vikashkothary.life.data.model.Ribot;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +17,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.vikashkothary.life.R;
-import com.vikashkothary.life.data.model.Ribot;
 
 public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewHolder> {
 
@@ -53,9 +54,12 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
 
     class RibotViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.view_hex_color) View hexColorView;
-        @BindView(R.id.text_name) TextView nameTextView;
-        @BindView(R.id.text_email) TextView emailTextView;
+        @BindView(R.id.view_hex_color)
+        View hexColorView;
+        @BindView(R.id.text_name)
+        TextView nameTextView;
+        @BindView(R.id.text_email)
+        TextView emailTextView;
 
         public RibotViewHolder(View itemView) {
             super(itemView);

@@ -5,10 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.vikashkothary.life.LifeApplication;
-import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.util.NotificationFactory;
-
-import javax.inject.Inject;
 
 /**
  * Created by vikash on 10/07/17.
