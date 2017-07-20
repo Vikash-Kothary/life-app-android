@@ -7,21 +7,23 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.IBinder;
 
-import javax.inject.Inject;
-
-import rx.Observer;
-import rx.Subscription;
-import rx.schedulers.Schedulers;
-import timber.log.Timber;
 import com.vikashkothary.life.LifeApplication;
 import com.vikashkothary.life.data.model.Ribot;
 import com.vikashkothary.life.util.AndroidComponentUtil;
 import com.vikashkothary.life.util.NetworkUtil;
 import com.vikashkothary.life.util.RxUtil;
 
+import javax.inject.Inject;
+
+import rx.Observer;
+import rx.Subscription;
+import rx.schedulers.Schedulers;
+import timber.log.Timber;
+
 public class SyncService extends Service {
 
-    @Inject DataManager mDataManager;
+    @Inject
+    DataManager mDataManager;
     private Subscription mSubscription;
 
     public static Intent getStartIntent(Context context) {

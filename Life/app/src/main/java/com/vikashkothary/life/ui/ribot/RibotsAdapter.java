@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.main;
+package com.vikashkothary.life.ui.ribot;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;

@@ -1,5 +1,10 @@
 package com.vikashkothary.life;
 
+import com.vikashkothary.life.data.DataManager;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.test.common.TestDataFactory;
+import com.vikashkothary.life.util.RxSchedulersOverrideRule;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,12 +18,6 @@ import java.util.Collections;
 import java.util.List;
 
 import rx.Observable;
-import com.vikashkothary.life.data.DataManager;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.test.common.TestDataFactory;
-import com.vikashkothary.life.ui.main.MainMvpView;
-import com.vikashkothary.life.ui.main.MainPresenter;
-import com.vikashkothary.life.util.RxSchedulersOverrideRule;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -27,12 +26,13 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class MainPresenterTest {
 
-    @Mock MainMvpView mMockMainMvpView;
-    @Mock DataManager mMockDataManager;
-    private MainPresenter mMainPresenter;
-
     @Rule
     public final RxSchedulersOverrideRule mOverrideSchedulersRule = new RxSchedulersOverrideRule();
+    @Mock
+    MainMvpView mMockMainMvpView;
+    @Mock
+    DataManager mMockDataManager;
+    private MainPresenter mMainPresenter;
 
     @Before
     public void setUp() {

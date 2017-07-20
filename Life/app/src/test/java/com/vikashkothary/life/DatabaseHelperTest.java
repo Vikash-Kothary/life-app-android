@@ -2,6 +2,14 @@ package com.vikashkothary.life;
 
 import android.database.Cursor;
 
+import com.vikashkothary.life.data.local.DatabaseHelper;
+import com.vikashkothary.life.data.local.Db;
+import com.vikashkothary.life.data.local.DbOpenHelper;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.test.common.TestDataFactory;
+import com.vikashkothary.life.util.DefaultConfig;
+import com.vikashkothary.life.util.RxSchedulersOverrideRule;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,13 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import rx.observers.TestSubscriber;
-import com.vikashkothary.life.data.local.DatabaseHelper;
-import com.vikashkothary.life.data.local.Db;
-import com.vikashkothary.life.data.local.DbOpenHelper;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.test.common.TestDataFactory;
-import com.vikashkothary.life.util.DefaultConfig;
-import com.vikashkothary.life.util.RxSchedulersOverrideRule;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -30,11 +31,10 @@ import static junit.framework.Assert.assertEquals;
 @Config(constants = BuildConfig.class, sdk = DefaultConfig.EMULATE_SDK)
 public class DatabaseHelperTest {
 
-    private final DatabaseHelper mDatabaseHelper =
-            new DatabaseHelper(new DbOpenHelper(RuntimeEnvironment.application));
-
     @Rule
     public final RxSchedulersOverrideRule mOverrideSchedulersRule = new RxSchedulersOverrideRule();
+    private final DatabaseHelper mDatabaseHelper =
+            new DatabaseHelper(new DbOpenHelper(RuntimeEnvironment.application));
 
     @Test
     public void setRibots() {

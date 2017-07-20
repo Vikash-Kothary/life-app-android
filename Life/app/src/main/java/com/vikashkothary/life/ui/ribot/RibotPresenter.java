@@ -1,8 +1,7 @@
-package com.vikashkothary.life.ui.main;
+package com.vikashkothary.life.ui.ribot;
 
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.injection.ConfigPersistent;
 import com.vikashkothary.life.ui.base.BasePresenter;
 import com.vikashkothary.life.util.RxUtil;
 
@@ -16,19 +15,22 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
-@ConfigPersistent
-public class MainPresenter extends BasePresenter<MainMvpView> {
+/**
+ * Created by vikash on 19/07/17.
+ */
+
+class RibotPresenter extends BasePresenter<RibotMvpView> {
 
     private final DataManager mDataManager;
     private Subscription mSubscription;
 
     @Inject
-    public MainPresenter(DataManager dataManager) {
+    public RibotPresenter(DataManager dataManager) {
         mDataManager = dataManager;
     }
 
     @Override
-    public void attachView(MainMvpView mvpView) {
+    public void attachView(RibotMvpView mvpView) {
         super.attachView(mvpView);
     }
 

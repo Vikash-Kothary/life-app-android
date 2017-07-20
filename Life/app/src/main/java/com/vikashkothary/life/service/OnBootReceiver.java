@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.vikashkothary.life.LifeApplication;
-import com.vikashkothary.life.data.DataManager;
-
-import javax.inject.Inject;
+import com.vikashkothary.life.util.NotificationFactory;
 
 /**
  * Created by vikash on 10/07/17.
@@ -15,7 +13,7 @@ import javax.inject.Inject;
 
 public class OnBootReceiver extends BroadcastReceiver {
 
-    @Inject DataManager mDataManager;
+//    @Inject DataManager mDataManager;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -24,5 +22,10 @@ public class OnBootReceiver extends BroadcastReceiver {
 //            context.startService(AutoCheckInService.getStartIntent(context));
 //        }
         // TODO: Start background services
+        switch (intent.getAction()) {
+            case "android.intent.action.BOOT_COMPLETED":
+
+        }
+        NotificationFactory.createSimpleNotification(context, "App Name", "Boot");
     }
 }

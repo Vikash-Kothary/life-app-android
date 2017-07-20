@@ -1,9 +1,10 @@
 package com.vikashkothary.life.injection.component;
 
-import dagger.Component;
 import com.vikashkothary.life.injection.ConfigPersistent;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.base.BaseActivity;
+
+import dagger.Component;
 
 /**
  * A dagger component that will live during the lifecycle of an Activity but it won't

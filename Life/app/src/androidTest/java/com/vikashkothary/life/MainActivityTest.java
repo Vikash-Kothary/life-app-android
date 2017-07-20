@@ -6,6 +6,11 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.test.common.TestComponentRule;
+import com.vikashkothary.life.test.common.TestDataFactory;
+import com.vikashkothary.life.ui.main.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.RuleChain;
@@ -15,15 +20,10 @@ import org.junit.runner.RunWith;
 import java.util.List;
 
 import rx.Observable;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.test.common.TestComponentRule;
-import com.vikashkothary.life.test.common.TestDataFactory;
-import com.vikashkothary.life.ui.main.MainActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.mockito.Mockito.when;
 

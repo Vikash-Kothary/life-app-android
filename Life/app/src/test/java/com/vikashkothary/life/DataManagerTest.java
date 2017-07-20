@@ -1,5 +1,12 @@
 package com.vikashkothary.life;
 
+import com.vikashkothary.life.data.DataManager;
+import com.vikashkothary.life.data.local.DatabaseHelper;
+import com.vikashkothary.life.data.local.PreferencesHelper;
+import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.data.remote.RibotsService;
+import com.vikashkothary.life.test.common.TestDataFactory;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,12 +19,6 @@ import java.util.List;
 
 import rx.Observable;
 import rx.observers.TestSubscriber;
-import com.vikashkothary.life.data.DataManager;
-import com.vikashkothary.life.data.local.DatabaseHelper;
-import com.vikashkothary.life.data.local.PreferencesHelper;
-import com.vikashkothary.life.data.model.Ribot;
-import com.vikashkothary.life.data.remote.RibotsService;
-import com.vikashkothary.life.test.common.TestDataFactory;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -34,9 +35,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DataManagerTest {
 
-    @Mock DatabaseHelper mMockDatabaseHelper;
-    @Mock PreferencesHelper mMockPreferencesHelper;
-    @Mock RibotsService mMockRibotsService;
+    @Mock
+    DatabaseHelper mMockDatabaseHelper;
+    @Mock
+    PreferencesHelper mMockPreferencesHelper;
+    @Mock
+    RibotsService mMockRibotsService;
     private DataManager mDataManager;
 
     @Before

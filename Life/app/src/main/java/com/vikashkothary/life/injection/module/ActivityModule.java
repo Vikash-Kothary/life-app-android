@@ -3,9 +3,10 @@ package com.vikashkothary.life.injection.module;
 import android.app.Activity;
 import android.content.Context;
 
+import com.vikashkothary.life.injection.ActivityContext;
+
 import dagger.Module;
 import dagger.Provides;
-import com.vikashkothary.life.injection.ActivityContext;
 
 @Module
 public class ActivityModule {

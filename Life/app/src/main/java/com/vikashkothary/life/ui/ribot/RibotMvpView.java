@@ -1,13 +1,15 @@
-package com.vikashkothary.life.ui.main;
+package com.vikashkothary.life.ui.ribot;
 
 import com.vikashkothary.life.data.model.Ribot;
 import com.vikashkothary.life.ui.base.MvpView;
 
 import java.util.List;
 
-public interface MainMvpView extends MvpView {
+public interface RibotMvpView extends MvpView {
 
     void showRibots(List<Ribot> ribots);
+
+    void showRibotProgress(boolean show);
 
     void showRibotsEmpty();
 
