@@ -18,7 +18,7 @@ public class LauncherActivity extends BaseActivity {
         activityComponent().inject(this);
         Intent intent;
         // if signed in
-        intent = MainActivity.getStartIntent(this, false);
+        intent = MainActivity.newIntent(this);
         // else show signin activity
         startActivity(intent);
         finish();

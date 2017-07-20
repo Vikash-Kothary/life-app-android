@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/nav_home" />
+
+    <group
+        android:id="@+id/nav_type_deficiency">
+        <item
+            android:title="@string/nav_group_physical">
+            <menu>
+                <group>
+                    <item
+                        android:id="@+id/nav_sleep"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="@string/nav_sleep" />
+                    <item
+                        android:id="@+id/nav_fitness"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="@string/nav_fitness" />
+                    <item
+                        android:id="@+id/nav_nutrition"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="@string/nav_nutrition" />
+                </group>
+            </menu>
+        </item>
+        <item android:title="@string/nav_group_safety" />
+        <item android:title="@string/nav_group_social" />
+        <item android:title="@string/nav_group_esteem" />
+    </group>
+    <group
+        android:id="@+id/nav_type_growth">
+        <item
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_group_cognitive" />
+        <item
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_group_aesthetic" />
+        <item
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_group_actualization" />
+        <item
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_group_transcendence" />
+    </group>
+
+</menu>
