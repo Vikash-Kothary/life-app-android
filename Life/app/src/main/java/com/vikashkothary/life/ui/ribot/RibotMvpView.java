@@ -9,8 +9,6 @@ public interface RibotMvpView extends MvpView {
 
     void showRibots(List<Ribot> ribots);
 
-    void showRibotProgress(boolean show);
-
     void showRibotsEmpty();
 
     void showError();

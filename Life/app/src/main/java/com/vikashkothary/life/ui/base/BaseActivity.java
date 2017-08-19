@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
         return mActivityComponent;
     }
 
-    public void setFragment(BaseFragment fragment){
+    public void setFragment(BaseFragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();

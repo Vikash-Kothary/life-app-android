@@ -19,11 +19,14 @@ public interface ActivityComponent {
 
     // Activities
     void inject(MainActivity mainActivity);
+
     void inject(LauncherActivity launcherActivity);
+
     void inject(SettingsActivity settingsActivity);
 
     // Fragments
     void inject(RibotFragment ribotFragment);
+
     void inject(SettingsFragment settingsFragment);
 
 }
