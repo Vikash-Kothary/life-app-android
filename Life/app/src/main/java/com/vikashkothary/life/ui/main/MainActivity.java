@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.settings.SettingsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,6 +80,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
+                startActivity(SettingsActivity.newIntent(this));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

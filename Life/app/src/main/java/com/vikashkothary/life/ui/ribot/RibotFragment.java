@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 public class RibotFragment extends BaseFragment implements RibotMvpView {
 
     private static final String EXTRA_TRIGGER_SYNC_FLAG =
-            "com.vikashkothary.life.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG";
+            "com.vikashkothary.life.ui.ribot.RibotFragment.EXTRA_TRIGGER_SYNC_FLAG";
 
     @Inject
     RibotPresenter mRibotPresenter;
@@ -44,8 +44,6 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
     RecyclerView mRibotRecycler;
     @BindView(R.id.swipe_to_refresh)
     SwipeRefreshLayout mSwipeToRefresh;
-    @BindView(R.id.progress)
-    ProgressBar mProgress;
 
     /**
      * Return an Intent to start this Activity.
@@ -128,12 +126,12 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
 
     @Override
     public void showRibotProgress(boolean show) {
-        mSwipeToRefresh.setRefreshing(show);
-        if (show && mRibotsAdapter.getItemCount() == 0) {
-            mProgress.setVisibility(View.VISIBLE);
-        } else {
-            mProgress.setVisibility(View.GONE);
-        }
+//        mSwipeToRefresh.setRefreshing(show);
+//        if (show && mRibotsAdapter.getItemCount() == 0) {
+//            mProgress.setVisibility(View.VISIBLE);
+//        } else {
+//            mProgress.setVisibility(View.GONE);
+//        }
     }
 
     @Override

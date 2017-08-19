@@ -6,42 +6,41 @@
         android:icon="@mipmap/ic_launcher"
         android:title="@string/nav_home" />
 
-    <group android:id="@+id/nav_type_deficiency">
-        <item android:title="@string/nav_group_physical">
-            <menu>
-                <group>
-                    <item
-                        android:id="@+id/nav_sleep"
-                        android:icon="@mipmap/ic_launcher"
-                        android:title="@string/nav_sleep" />
-                    <item
-                        android:id="@+id/nav_fitness"
-                        android:icon="@mipmap/ic_launcher"
-                        android:title="@string/nav_fitness" />
-                    <item
-                        android:id="@+id/nav_nutrition"
-                        android:icon="@mipmap/ic_launcher"
-                        android:title="@string/nav_nutrition" />
-                </group>
-            </menu>
-        </item>
-        <item android:title="@string/nav_group_safety" />
-        <item android:title="@string/nav_group_social" />
-        <item android:title="@string/nav_group_esteem" />
+    <group android:id="@+id/nav_group_deficiency">
+        <item
+            android:id="@+id/nav_level_physical"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_level_physical" />
+        <item
+            android:id="@+id/nav_level_safety"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_level_safety" />
+        <item
+            android:id="@+id/nav_level_social"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_level_social" />
+        <item
+            android:id="@+id/nav_level_esteem"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/nav_level_esteem" />
     </group>
-    <group android:id="@+id/nav_type_growth">
+    <group android:id="@+id/nav_group_growth">
         <item
+            android:id="@+id/nav_level_cognitive"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/nav_group_cognitive" />
+            android:title="@string/nav_level_cognitive" />
         <item
+            android:id="@+id/nav_level_aesthetic"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/nav_group_aesthetic" />
+            android:title="@string/nav_level_aesthetic" />
         <item
+            android:id="@+id/nav_actualization"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/nav_group_actualization" />
+            android:title="@string/nav_level_actualization" />
         <item
+            android:id="@+id/nav_transcendence"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/nav_group_transcendence" />
+            android:title="@string/nav_level_transcendence" />
     </group>
 
 </menu>
