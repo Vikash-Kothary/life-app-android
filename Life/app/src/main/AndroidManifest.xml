@@ -48,7 +48,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".service.OnBootReceiver"
+            android:name=".ui.OnBootReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
