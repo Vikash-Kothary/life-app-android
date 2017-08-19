@@ -122,22 +122,14 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
     public void showRibots(List<Ribot> ribots) {
         mRibotsAdapter.setRibots(ribots);
         mRibotsAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void showRibotProgress(boolean show) {
-//        mSwipeToRefresh.setRefreshing(show);
-//        if (show && mRibotsAdapter.getItemCount() == 0) {
-//            mProgress.setVisibility(View.VISIBLE);
-//        } else {
-//            mProgress.setVisibility(View.GONE);
-//        }
+        mSwipeToRefresh.setRefreshing(false);
     }
 
     @Override
     public void showError() {
         DialogFactory.createGenericErrorDialog(getActivity(), getString(R.string.error_loading_ribots))
                 .show();
+        mSwipeToRefresh.setRefreshing(false);
     }
 
     @Override
@@ -145,6 +137,7 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
         mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
         mRibotsAdapter.notifyDataSetChanged();
         Toast.makeText(getActivity(), R.string.empty_ribots, Toast.LENGTH_LONG).show();
+        mSwipeToRefresh.setRefreshing(false);
     }
 
 }
