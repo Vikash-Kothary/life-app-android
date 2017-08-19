@@ -22,8 +22,11 @@ import dagger.Component;
 public interface ApplicationComponent {
 
     void inject(SyncService syncService);
+//    void inject(PomodoroService pomodoroService);
 
-    void inject(OnBootReceiver onBootReceiver);
+    void inject(OnBootReceiver myBroadcastReceiver);
+
+
 
     @ApplicationContext
     Context context();

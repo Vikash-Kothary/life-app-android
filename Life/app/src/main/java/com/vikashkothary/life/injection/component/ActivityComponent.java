@@ -5,6 +5,8 @@ import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
 import com.vikashkothary.life.ui.main.MainActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.settings.SettingsActivity;
+import com.vikashkothary.life.ui.settings.SettingsFragment;
 
 import dagger.Subcomponent;
 
@@ -17,10 +19,11 @@ public interface ActivityComponent {
 
     // Activities
     void inject(MainActivity mainActivity);
-
     void inject(LauncherActivity launcherActivity);
+    void inject(SettingsActivity settingsActivity);
 
     // Fragments
     void inject(RibotFragment ribotFragment);
+    void inject(SettingsFragment settingsFragment);
 
 }
