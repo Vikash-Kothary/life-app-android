@@ -27,7 +27,6 @@ public interface ApplicationComponent {
     void inject(OnBootReceiver myBroadcastReceiver);
 
 
-
     @ApplicationContext
     Context context();
 

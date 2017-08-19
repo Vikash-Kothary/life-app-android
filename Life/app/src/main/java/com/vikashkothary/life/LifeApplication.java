@@ -3,12 +3,10 @@ package com.vikashkothary.life;
 import android.app.Application;
 import android.content.Context;
 
-import com.crashlytics.android.Crashlytics;
 import com.vikashkothary.life.injection.component.ApplicationComponent;
 import com.vikashkothary.life.injection.component.DaggerApplicationComponent;
 import com.vikashkothary.life.injection.module.ApplicationModule;
 
-import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 public class LifeApplication extends Application {
