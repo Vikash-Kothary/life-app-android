@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
+import com.vikashkothary.life.ui.creation.CreationActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
 
@@ -40,6 +41,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         activityComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        startActivity(new Intent(this, CreationActivity.class));
 
         setupActivity();
 
