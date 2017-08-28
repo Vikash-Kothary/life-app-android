@@ -3,6 +3,8 @@ package com.vikashkothary.life.injection.component;
 import com.vikashkothary.life.injection.PerActivity;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
+import com.vikashkothary.life.ui.creation.CreationActivity;
+import com.vikashkothary.life.ui.creation.CreationFragment;
 import com.vikashkothary.life.ui.main.MainActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
@@ -18,14 +20,18 @@ import dagger.Subcomponent;
 public interface ActivityComponent {
 
     // Activities
+    void inject(LauncherActivity launcherActivity);
+
     void inject(MainActivity mainActivity);
 
-    void inject(LauncherActivity launcherActivity);
+    void inject(CreationActivity creationActivity);
 
     void inject(SettingsActivity settingsActivity);
 
     // Fragments
     void inject(RibotFragment ribotFragment);
+
+    void inject(CreationFragment creationFragment);
 
     void inject(SettingsFragment settingsFragment);
 
