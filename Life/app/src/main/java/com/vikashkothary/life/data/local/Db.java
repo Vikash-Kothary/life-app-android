@@ -25,15 +25,15 @@ public class Db {
         public static final String COLUMN_BIO = "bio";
 
         public static final String CREATE =
-                "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
-                        COLUMN_FIRST_NAME + " TEXT NOT NULL, " +
-                        COLUMN_LAST_NAME + " TEXT NOT NULL, " +
-                        COLUMN_HEX_COLOR + " TEXT NOT NULL, " +
-                        COLUMN_DATE_OF_BIRTH + " INTEGER NOT NULL, " +
-                        COLUMN_AVATAR + " TEXT, " +
-                        COLUMN_BIO + " TEXT" +
-                        " ); ";
+                "CREATE TABLE " + TABLE_NAME
+                        + " (" + COLUMN_EMAIL + " TEXT PRIMARY KEY"
+                        + ", " + COLUMN_FIRST_NAME + " TEXT NOT NULL"
+                        + ", " + COLUMN_LAST_NAME + " TEXT NOT NULL"
+                        + ", " + COLUMN_HEX_COLOR + " TEXT NOT NULL"
+                        + ", " + COLUMN_DATE_OF_BIRTH + " INTEGER NOT NULL"
+                        + ", " + COLUMN_AVATAR + " TEXT"
+                        + ", " + COLUMN_BIO + " TEXT"
+                        + ");";
 
         public static ContentValues toContentValues(Profile profile) {
             ContentValues values = new ContentValues();
