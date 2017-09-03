@@ -19,7 +19,7 @@ import timber.log.Timber;
  * Created by vikash on 19/07/17.
  */
 
-class RibotPresenter extends BasePresenter<RibotMvpView> {
+public class RibotPresenter extends BasePresenter<RibotMvpView> {
 
     private final DataManager mDataManager;
     private Subscription mSubscription;

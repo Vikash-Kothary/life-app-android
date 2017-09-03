@@ -3,6 +3,8 @@ package com.vikashkothary.life;
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.model.Ribot;
 import com.vikashkothary.life.test.common.TestDataFactory;
+import com.vikashkothary.life.ui.ribot.RibotMvpView;
+import com.vikashkothary.life.ui.ribot.RibotPresenter;
 import com.vikashkothary.life.util.RxSchedulersOverrideRule;
 
 import org.junit.After;
@@ -24,25 +26,25 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainPresenterTest {
+public class RibotPresenterTest {
 
     @Rule
     public final RxSchedulersOverrideRule mOverrideSchedulersRule = new RxSchedulersOverrideRule();
     @Mock
-    MainMvpView mMockMainMvpView;
+    RibotMvpView mMockRibotMvpView;
     @Mock
     DataManager mMockDataManager;
-    private MainPresenter mMainPresenter;
+    private RibotPresenter mRibotPresenter;
 
     @Before
     public void setUp() {
-        mMainPresenter = new MainPresenter(mMockDataManager);
-        mMainPresenter.attachView(mMockMainMvpView);
+        mRibotPresenter = new RibotPresenter(mMockDataManager);
+        mRibotPresenter.attachView(mMockRibotMvpView);
     }
 
     @After
     public void tearDown() {
-        mMainPresenter.detachView();
+        mRibotPresenter.detachView();
     }
 
     @Test
@@ -51,10 +53,10 @@ public class MainPresenterTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.just(ribots));
 
-        mMainPresenter.loadRibots();
-        verify(mMockMainMvpView).showRibots(ribots);
-        verify(mMockMainMvpView, never()).showRibotsEmpty();
-        verify(mMockMainMvpView, never()).showError();
+        mRibotPresenter.loadRibots();
+        verify(mMockRibotMvpView).showRibots(ribots);
+        verify(mMockRibotMvpView, never()).showRibotsEmpty();
+        verify(mMockRibotMvpView, never()).showError();
     }
 
     @Test
@@ -62,10 +64,10 @@ public class MainPresenterTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.just(Collections.<Ribot>emptyList()));
 
-        mMainPresenter.loadRibots();
-        verify(mMockMainMvpView).showRibotsEmpty();
-        verify(mMockMainMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());
-        verify(mMockMainMvpView, never()).showError();
+        mRibotPresenter.loadRibots();
+        verify(mMockRibotMvpView).showRibotsEmpty();
+        verify(mMockRibotMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());
+        verify(mMockRibotMvpView, never()).showError();
     }
 
     @Test
@@ -73,10 +75,10 @@ public class MainPresenterTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.<List<Ribot>>error(new RuntimeException()));
 
-        mMainPresenter.loadRibots();
-        verify(mMockMainMvpView).showError();
-        verify(mMockMainMvpView, never()).showRibotsEmpty();
-        verify(mMockMainMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());
+        mRibotPresenter.loadRibots();
+        verify(mMockRibotMvpView).showError();
+        verify(mMockRibotMvpView, never()).showRibotsEmpty();
+        verify(mMockRibotMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());
     }
 
 }
