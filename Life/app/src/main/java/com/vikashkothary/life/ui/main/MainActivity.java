@@ -3,7 +3,6 @@ package com.vikashkothary.life.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +14,7 @@ import android.view.MenuItem;
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.stream.StreamFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -90,13 +90,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                return false;
+                setFragment(new StreamFragment());
+                break;
             case R.id.nav_level_physical:
                 setFragment(RibotFragment.newInstance());
-                return true;
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
