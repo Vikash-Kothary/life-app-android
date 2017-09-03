@@ -20,9 +20,9 @@ public class SettingsActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    public static Intent newIntent(Context context) {
+    public static void startSettings(Context context) {
         Intent intent = new Intent(context, SettingsActivity.class);
-        return intent;
+        context.startActivity(intent);
     }
 
     @Override

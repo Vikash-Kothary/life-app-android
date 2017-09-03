@@ -1,5 +1,7 @@
 package com.vikashkothary.life.ui.creation;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
@@ -13,6 +15,11 @@ public class CreationActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    public static void startCreation(Context context) {
+        Intent intent = new Intent(context, CreationActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
