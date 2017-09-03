@@ -20,6 +20,16 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.Creation" parent="AppTheme.NoActionBar">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColorPrimary">@color/primary</item>
+        <item name="android:textColorSecondary">@color/primary</item>
+
+        <item name="colorControlNormal">@color/primary</item>
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorControlHighlight">#f44336</item>
+    </style>
+
     <style name="AppTheme.Settings" parent="AppTheme.NoActionBar">
         <item name="android:windowBackground">@color/primary</item>
         <item name="android:textColor">@color/text</item>

@@ -93,7 +93,7 @@ play {
 
 dependencies {
     final PLAY_SERVICES_VERSION = '9.6.1'
-    final SUPPORT_LIBRARY_VERSION = '25.0.0'
+    final SUPPORT_LIBRARY_VERSION = '25.0.1'
     final RETROFIT_VERSION = '2.1.0'
     final DAGGER_VERSION = '2.5'
     final MOCKITO_VERSION = '2.6.2'
@@ -169,6 +169,7 @@ dependencies {
     testCompile "org.hamcrest:hamcrest-core:$HAMCREST_VERSION"
     testCompile "org.hamcrest:hamcrest-library:$HAMCREST_VERSION"
     testCompile "org.hamcrest:hamcrest-integration:$HAMCREST_VERSION"
+    compile 'com.code-troopers.betterpickers:library:3.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'

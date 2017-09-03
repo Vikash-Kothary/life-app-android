@@ -31,7 +31,7 @@
             android:name=".ui.creation.CreationActivity"
             android:label="@string/title_activity_creation"
             android:parentActivityName=".ui.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Creation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.vikashkothary.life.ui.main.MainActivity" />
