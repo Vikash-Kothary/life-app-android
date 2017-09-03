@@ -21,10 +21,10 @@ import butterknife.ButterKnife;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class CreationFragment extends BaseFragment implements CalendarDatePickerDialogFragment.OnDateSetListener, View.OnClickListener, RadialTimePickerDialogFragment.OnTimeSetListener {
+public class NewReminderFragment extends BaseFragment implements CalendarDatePickerDialogFragment.OnDateSetListener, View.OnClickListener, RadialTimePickerDialogFragment.OnTimeSetListener {
 
-    private static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
-    private static final String FRAG_TAG_TIME_PICKER = "timePickerDialogFragment";
+    private static final String FRAG_TAG_DATE_PICKER = "date_picker_dialog_fragment";
+    private static final String FRAG_TAG_TIME_PICKER = "time_picker_dialog_fragment";
 
     @BindView(R.id.button_date)
     Button mDateButton;
@@ -32,7 +32,7 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
     Button mTimeButton;
 
     public static void attachFragment(BaseActivity activity) {
-        CreationFragment fragment = new CreationFragment();
+        NewReminderFragment fragment = new NewReminderFragment();
         activity.setFragment(fragment);
     }
 
@@ -47,10 +47,10 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_creation, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_new_reminder, container, false);
         ButterKnife.bind(this, fragmentView);
 
-        getActivity().setTitle("New");
+        getActivity().setTitle("New Reminder");
 
         mDateButton.setOnClickListener(this);
         mTimeButton.setOnClickListener(this);
@@ -63,7 +63,7 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
         switch (v.getId()) {
             case R.id.button_date:
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setOnDateSetListener(CreationFragment.this)
+                        .setOnDateSetListener(NewReminderFragment.this)
                         .setFirstDayOfWeek(Calendar.SUNDAY)
                         .setPreselectedDate(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH))
                         .setDoneText("Yay")
@@ -73,7 +73,7 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
                 break;
             case R.id.button_time:
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
-                        .setOnTimeSetListener(CreationFragment.this)
+                        .setOnTimeSetListener(NewReminderFragment.this)
                         .setStartTime(today.get(Calendar.HOUR), today.get(Calendar.MINUTE))
                         .setDoneText("Yay")
                         .setCancelText("Nope")
