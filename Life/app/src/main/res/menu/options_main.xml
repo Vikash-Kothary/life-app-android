@@ -4,6 +4,13 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/action_new"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:orderInCategory="98"
+        android:title="@string/action_new"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_white_24dp"
         android:orderInCategory="99"

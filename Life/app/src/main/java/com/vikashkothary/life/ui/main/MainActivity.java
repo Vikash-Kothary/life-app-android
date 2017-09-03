@@ -14,12 +14,12 @@ import android.view.MenuItem;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
-import com.vikashkothary.life.ui.creation.CreationActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.vikashkothary.life.ui.creation.CreationActivity.startCreation;
 import static com.vikashkothary.life.ui.settings.SettingsActivity.startSettings;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,15 +43,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        startActivity(new Intent(this, CreationActivity.class));
-
         setupActivity();
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, RibotFragment.newInstance())
-                    .commit();
-        }
+//        if (savedInstanceState == null);
     }
 
     private void setupActivity() {
@@ -63,7 +57,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -83,6 +76,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_new:
+                startCreation(this);
+                return true;
             case R.id.action_search:
                 return false;
             case R.id.action_settings:
@@ -96,6 +92,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.nav_home:
+                return false;
+            case R.id.nav_level_physical:
+                setFragment(RibotFragment.newInstance());
+                return true;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
