@@ -33,6 +33,7 @@ public class CreationActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
