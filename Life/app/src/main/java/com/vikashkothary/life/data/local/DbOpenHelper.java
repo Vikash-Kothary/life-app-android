@@ -12,7 +12,7 @@ import javax.inject.Singleton;
 @Singleton
 public class DbOpenHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "ribots.db";
+    public static final String DATABASE_NAME = "life.db";
     public static final int DATABASE_VERSION = 1;
 
     @Inject
@@ -32,6 +32,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         db.beginTransaction();
         try {
             db.execSQL(Db.RibotProfileTable.CREATE);
+            db.execSQL(Db.RemindersTable.CREATE);
             //Add other tables here
             db.setTransactionSuccessful();
         } finally {

@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import com.vikashkothary.life.data.model.Name;
 import com.vikashkothary.life.data.model.Profile;
+import com.vikashkothary.life.data.model.Reminder;
 
 import java.util.Date;
 
@@ -60,6 +61,37 @@ public class Db {
                     .setDateOfBirth(new Date(dobTime))
                     .setAvatar(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_AVATAR)))
                     .setBio(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BIO)))
+                    .build();
+        }
+    }
+
+    public abstract static class RemindersTable {
+        public static final String TABLE_NAME = "reminders_table";
+
+        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_MESSAGE = "message";
+        public static final String COLUMN_DATETIME = "datetime";
+
+        public static final String CREATE =
+                "CREATE TABLE " + TABLE_NAME
+                        + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT"
+                        + ", " + COLUMN_MESSAGE + " TEXT NOT NULL"
+                        + ", " + COLUMN_DATETIME + " INTEGER NOT NULL"
+                        + ");";
+
+        public static ContentValues toContentValues(Reminder reminder) {
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_ID, reminder.id());
+            values.put(COLUMN_MESSAGE, reminder.message());
+            values.put(COLUMN_DATETIME, reminder.datetime().getTime());
+            return values;
+        }
+
+        public static Reminder parseCursor(Cursor cursor) {
+            return Reminder.builder()
+                    .setId(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)))
+                    .setMessage(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MESSAGE)))
+                    .setDatetime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATETIME))))
                     .build();
         }
     }
