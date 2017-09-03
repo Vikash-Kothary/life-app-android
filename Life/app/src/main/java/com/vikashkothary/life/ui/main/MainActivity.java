@@ -83,6 +83,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_search:
+                return false;
             case R.id.action_settings:
                 startSettings(this);
                 return true;

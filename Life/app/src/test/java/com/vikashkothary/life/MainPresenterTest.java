@@ -3,8 +3,6 @@ package com.vikashkothary.life;
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.model.Ribot;
 import com.vikashkothary.life.test.common.TestDataFactory;
-import com.vikashkothary.life.ui.main.MainMvpView;
-import com.vikashkothary.life.ui.main.MainPresenter;
 import com.vikashkothary.life.util.RxSchedulersOverrideRule;
 
 import org.junit.After;
