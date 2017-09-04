@@ -50,7 +50,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
         View fragmentView = inflater.inflate(R.layout.fragment_new_reminder, container, false);
         ButterKnife.bind(this, fragmentView);
 
-        getActivity().setTitle("New Reminder");
+        getActivity().setTitle(R.string.title_fragment_new_reminder);
 
         mDateButton.setOnClickListener(this);
         mTimeButton.setOnClickListener(this);
