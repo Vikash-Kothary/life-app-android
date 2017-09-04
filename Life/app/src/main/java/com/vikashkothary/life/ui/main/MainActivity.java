@@ -10,10 +10,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.signin.LoginActivity;
 import com.vikashkothary.life.ui.stream.StreamFragment;
 
 import butterknife.BindView;
@@ -56,6 +58,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
     }
 
     @Override
