@@ -39,7 +39,6 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
         ((BaseActivity) getActivity()).activityComponent().inject(this);
 
     }
