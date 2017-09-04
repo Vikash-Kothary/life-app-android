@@ -10,7 +10,7 @@ import com.vikashkothary.life.data.local.PreferencesHelper;
 import com.vikashkothary.life.data.remote.RibotsService;
 import com.vikashkothary.life.injection.ApplicationContext;
 import com.vikashkothary.life.injection.module.ApplicationModule;
-import com.vikashkothary.life.ui.OnBootReceiver;
+import com.vikashkothary.life.services.OnBootReceiver;
 import com.vikashkothary.life.util.RxEventBus;
 
 import javax.inject.Singleton;

@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui;
+package com.vikashkothary.life.services;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
