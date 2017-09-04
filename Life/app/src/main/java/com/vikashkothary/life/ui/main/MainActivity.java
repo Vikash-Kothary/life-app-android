@@ -15,7 +15,7 @@ import android.view.View;
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
-import com.vikashkothary.life.ui.signin.LoginActivity;
+import com.vikashkothary.life.ui.login.LoginActivity;
 import com.vikashkothary.life.ui.stream.StreamFragment;
 
 import butterknife.BindView;

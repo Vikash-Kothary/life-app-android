@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.signin;
+package com.vikashkothary.life.ui.login;
 
 import android.content.Context;
 import android.net.Uri;
