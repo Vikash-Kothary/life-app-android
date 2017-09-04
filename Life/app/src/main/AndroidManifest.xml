@@ -63,7 +63,14 @@
         </activity>
 
         <service android:name=".data.SyncService" />
+        <service android:name=".services.NotificationService" />
 
+        <receiver
+            android:name=".services.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".data.SyncService$SyncOnConnectionAvailable"
             android:enabled="false">
@@ -72,17 +79,8 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".services.OnBootReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+            android:name=".services.NotificationService$NotificationScheduler" />
 
-        <service
-            android:name=".services.NotificationService"
-            android:exported="false"></service>
     </application>
 
 </manifest>
