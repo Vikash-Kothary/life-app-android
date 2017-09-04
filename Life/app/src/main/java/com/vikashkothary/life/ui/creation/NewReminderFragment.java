@@ -2,13 +2,18 @@ package com.vikashkothary.life.ui.creation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
 import com.vikashkothary.life.R;
+import com.vikashkothary.life.data.model.Reminder;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseFragment;
 
@@ -26,6 +31,10 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
     private static final String FRAG_TAG_DATE_PICKER = "date_picker_dialog_fragment";
     private static final String FRAG_TAG_TIME_PICKER = "time_picker_dialog_fragment";
 
+    private Calendar mCalendar = Calendar.getInstance();
+
+    @BindView(R.id.edit_text_message)
+    EditText mMessageEditText;
     @BindView(R.id.button_date)
     Button mDateButton;
     @BindView(R.id.button_time)
@@ -40,7 +49,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) getActivity()).activityComponent().inject(this);
-
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -55,6 +64,26 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
         mTimeButton.setOnClickListener(this);
 
         return fragmentView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.options_creation, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                Reminder r = Reminder.builder()
+                        .setMessage(mMessageEditText.getText().toString())
+                        .setDatetime(mCalendar.getTime())
+                        .build();
+                return false;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void onClick(View v) {
@@ -99,10 +128,16 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
     @Override
     public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
         mDateButton.setText(getString(R.string.calendar_date_picker_result_values, year, monthOfYear, dayOfMonth));
+        mCalendar.set(Calendar.YEAR, year);
+        mCalendar.set(Calendar.MONTH, monthOfYear);
+        mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
     }
 
     @Override
     public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
         mTimeButton.setText(getString(R.string.radial_time_picker_result_value, hourOfDay, minute));
+        mCalendar.set(Calendar.HOUR, hourOfDay);
+        mCalendar.set(Calendar.MINUTE, minute);
     }
 }
