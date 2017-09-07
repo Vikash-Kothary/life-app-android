@@ -2,8 +2,12 @@ package com.vikashkothary.life.ui;
 
 import android.os.Bundle;
 
+import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.ui.base.BaseActivity;
 
+import javax.inject.Inject;
+
+import static com.vikashkothary.life.ui.login.LoginActivity.startLogin;
 import static com.vikashkothary.life.ui.main.MainActivity.startMain;
 
 /**
@@ -12,13 +16,19 @@ import static com.vikashkothary.life.ui.main.MainActivity.startMain;
 
 public class LauncherActivity extends BaseActivity {
 
+    @Inject
+    DataManager mDataManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        // if signed in
+
         startMain(this);
-        // else show signin activity
+        if (! mDataManager.getPreferencesHelper().getUserSignedIn()) {
+            // if not logged in, show login activity
+            startLogin(this);
+        }
         finish();
     }
 }

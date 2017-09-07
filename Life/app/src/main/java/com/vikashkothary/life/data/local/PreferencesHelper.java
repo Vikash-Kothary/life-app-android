@@ -13,6 +13,8 @@ public class PreferencesHelper {
 
     public static final String PREF_FILE_NAME = "life_app_pref_file";
 
+    private static final String PREF_KEY_SIGNED_IN = "PREF_KEY_SIGNED_IN";
+
     private final SharedPreferences mPref;
 
     @Inject
@@ -24,4 +26,11 @@ public class PreferencesHelper {
         mPref.edit().clear().apply();
     }
 
+    public void putUserSignedIn(boolean signedIn) {
+        mPref.edit().putBoolean(PREF_KEY_SIGNED_IN, signedIn).apply();
+    }
+
+    public boolean getUserSignedIn() {
+        return mPref.getBoolean(PREF_KEY_SIGNED_IN, false);
+    }
 }
