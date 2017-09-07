@@ -64,7 +64,7 @@
         </activity>
 
         <service android:name=".data.SyncService" />
-        <service android:name=".services.NotificationService" />
+        <service android:name=".services.ReminderService" />
 
         <receiver
             android:name=".services.OnBootReceiver">
@@ -80,7 +80,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".services.NotificationService$NotificationScheduler" />
+            android:name=".services.ReminderService$NotificationScheduler" />
 
     </application>
 

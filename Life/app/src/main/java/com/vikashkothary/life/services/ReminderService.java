@@ -12,7 +12,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import com.vikashkothary.life.util.AndroidComponentUtil;
 
 
-public class NotificationService extends IntentService {
+public class ReminderService extends IntentService {
     private static final String ACTION_SHOW = "com.vikashkothary.life.services.action.SHOW";
     private static final String ACTION_HIDE = "com.vikashkothary.life.services.action.HIDE";
     private static final String ACTION_SCHEDULE = "com.vikashkothary.life.services.action.SCHEDULE";
@@ -21,12 +21,12 @@ public class NotificationService extends IntentService {
     private static final String EXTRA_ID = "com.vikashkothary.life.services.extra.ID";
     private static final String EXTRA_NOTIFICATION = "com.vikashkothary.life.services.extra.NOTIFICATION";
 
-    public NotificationService() {
-        super("NotificationService");
+    public ReminderService() {
+        super("ReminderService");
     }
 
     public static void showNotification(Context context, int id, Notification notification) {
-        Intent intent = new Intent(context, NotificationService.class);
+        Intent intent = new Intent(context, ReminderService.class);
         intent.setAction(ACTION_SHOW);
         intent.putExtra(EXTRA_ID, id);
         intent.putExtra(EXTRA_NOTIFICATION, notification);
@@ -34,7 +34,7 @@ public class NotificationService extends IntentService {
     }
 
     public static void hideNotification(Context context, int id, Notification notification) {
-        Intent intent = new Intent(context, NotificationService.class);
+        Intent intent = new Intent(context, ReminderService.class);
         intent.setAction(ACTION_HIDE);
         intent.putExtra(EXTRA_ID, id);
         intent.putExtra(EXTRA_NOTIFICATION, notification);
@@ -42,7 +42,7 @@ public class NotificationService extends IntentService {
     }
 
     public static boolean isRunning(Context context) {
-        return AndroidComponentUtil.isServiceRunning(context, NotificationService.class);
+        return AndroidComponentUtil.isServiceRunning(context, ReminderService.class);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class NotificationService extends IntentService {
             if (ACTION_SCHEDULE.equals(intent.getAction())) {
                 final int id = intent.getIntExtra(EXTRA_ID, 0);
                 final Notification notification = intent.getParcelableExtra(EXTRA_NOTIFICATION);
-                NotificationService.showNotification(context, id, notification);
+                ReminderService.showNotification(context, id, notification);
             }
         }
 
