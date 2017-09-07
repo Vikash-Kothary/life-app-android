@@ -21,6 +21,7 @@ import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -60,9 +61,6 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
 
         getActivity().setTitle(R.string.title_fragment_new_reminder);
 
-        mDateButton.setOnClickListener(this);
-        mTimeButton.setOnClickListener(this);
-
         return fragmentView;
     }
 
@@ -86,6 +84,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
         }
     }
 
+    @OnClick({R.id.button_date, R.id.button_time})
     public void onClick(View v) {
         Calendar today = Calendar.getInstance();
         switch (v.getId()) {
