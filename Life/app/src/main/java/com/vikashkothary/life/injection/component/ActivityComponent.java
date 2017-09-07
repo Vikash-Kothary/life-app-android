@@ -4,7 +4,7 @@ import com.vikashkothary.life.injection.PerActivity;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
 import com.vikashkothary.life.ui.creation.CreationActivity;
-import com.vikashkothary.life.ui.creation.NewReminderFragment;
+import com.vikashkothary.life.ui.creation.CreateReminderFragment;
 import com.vikashkothary.life.ui.main.MainActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
@@ -31,7 +31,7 @@ public interface ActivityComponent {
     // Fragments
     void inject(RibotFragment ribotFragment);
 
-    void inject(NewReminderFragment creationFragment);
+    void inject(CreateReminderFragment creationFragment);
 
     void inject(SettingsFragment settingsFragment);
 

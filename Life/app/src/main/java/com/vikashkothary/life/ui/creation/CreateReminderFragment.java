@@ -27,7 +27,7 @@ import butterknife.OnClick;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class NewReminderFragment extends BaseFragment implements CalendarDatePickerDialogFragment.OnDateSetListener, View.OnClickListener, RadialTimePickerDialogFragment.OnTimeSetListener {
+public class CreateReminderFragment extends BaseFragment implements CalendarDatePickerDialogFragment.OnDateSetListener, View.OnClickListener, RadialTimePickerDialogFragment.OnTimeSetListener {
 
     private static final String FRAG_TAG_DATE_PICKER = "date_picker_dialog_fragment";
     private static final String FRAG_TAG_TIME_PICKER = "time_picker_dialog_fragment";
@@ -42,7 +42,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
     Button mTimeButton;
 
     public static void attachFragment(BaseActivity activity) {
-        NewReminderFragment fragment = new NewReminderFragment();
+        CreateReminderFragment fragment = new CreateReminderFragment();
         activity.setFragment(fragment);
     }
 
@@ -90,7 +90,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
         switch (v.getId()) {
             case R.id.button_date:
                 CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
-                        .setOnDateSetListener(NewReminderFragment.this)
+                        .setOnDateSetListener(CreateReminderFragment.this)
                         .setFirstDayOfWeek(Calendar.SUNDAY)
                         .setPreselectedDate(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH))
                         .setDoneText("Yay")
@@ -100,7 +100,7 @@ public class NewReminderFragment extends BaseFragment implements CalendarDatePic
                 break;
             case R.id.button_time:
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
-                        .setOnTimeSetListener(NewReminderFragment.this)
+                        .setOnTimeSetListener(CreateReminderFragment.this)
                         .setStartTime(today.get(Calendar.HOUR), today.get(Calendar.MINUTE))
                         .setDoneText("Yay")
                         .setCancelText("Nope")
