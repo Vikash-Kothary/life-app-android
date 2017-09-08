@@ -7,7 +7,7 @@ import android.content.Intent;
 
 import com.vikashkothary.life.LifeApplication;
 
-import static com.vikashkothary.life.services.ReminderService.showNotification;
+import static com.vikashkothary.life.services.NotificationService.showNotification;
 import static com.vikashkothary.life.util.NotificationFactory.createSimpleNotification;
 
 /**
