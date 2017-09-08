@@ -69,20 +69,23 @@ public class Db {
         public static final String TABLE_NAME = "reminders_table";
 
         public static final String COLUMN_ID = "id";
-        public static final String COLUMN_MESSAGE = "message";
+        public static final String COLUMN_TITLE = "title";
+        public static final String COLUMN_TEXT = "text";
         public static final String COLUMN_DATETIME = "datetime";
 
         public static final String CREATE =
                 "CREATE TABLE " + TABLE_NAME
                         + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT"
-                        + ", " + COLUMN_MESSAGE + " TEXT NOT NULL"
+                        + ", " + COLUMN_TITLE + " TEXT"
+                        + ", " + COLUMN_TEXT + " TEXT NOT NULL"
                         + ", " + COLUMN_DATETIME + " INTEGER NOT NULL"
                         + ");";
 
         public static ContentValues toContentValues(Reminder reminder) {
             ContentValues values = new ContentValues();
             values.put(COLUMN_ID, reminder.id());
-            values.put(COLUMN_MESSAGE, reminder.message());
+            values.put(COLUMN_TITLE, reminder.title());
+            values.put(COLUMN_TEXT, reminder.text());
             values.put(COLUMN_DATETIME, reminder.datetime().getTime());
             return values;
         }
@@ -90,7 +93,8 @@ public class Db {
         public static Reminder parseCursor(Cursor cursor) {
             return Reminder.builder()
                     .setId(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)))
-                    .setMessage(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MESSAGE)))
+                    .setTitle(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)))
+                    .setText(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TEXT)))
                     .setDatetime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATETIME))))
                     .build();
         }
