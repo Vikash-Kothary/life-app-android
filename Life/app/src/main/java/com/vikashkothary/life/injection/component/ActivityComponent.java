@@ -9,6 +9,7 @@ import com.vikashkothary.life.ui.main.MainActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
 import com.vikashkothary.life.ui.settings.SettingsFragment;
+import com.vikashkothary.life.ui.stream.StreamFragment;
 
 import dagger.Subcomponent;
 
@@ -35,4 +36,5 @@ public interface ActivityComponent {
 
     void inject(SettingsFragment settingsFragment);
 
+    void inject(StreamFragment streamFragment);
 }

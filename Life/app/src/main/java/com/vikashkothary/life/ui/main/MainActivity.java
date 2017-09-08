@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                setFragment(new StreamFragment());
+                StreamFragment.attachFragment(this);
                 break;
             case R.id.nav_level_physical:
                 RibotFragment.attachFragment(this);
