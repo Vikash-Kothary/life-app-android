@@ -104,7 +104,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 setFragment(new StreamFragment());
                 break;
             case R.id.nav_level_physical:
-                setFragment(RibotFragment.newInstance());
+                RibotFragment.attachFragment(this);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
