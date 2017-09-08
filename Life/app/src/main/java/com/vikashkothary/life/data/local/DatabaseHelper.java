@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
+import com.vikashkothary.life.data.model.Reminder;
 import com.vikashkothary.life.data.model.Ribot;
 
 import java.util.Collection;
@@ -67,4 +68,57 @@ public class DatabaseHelper {
                 });
     }
 
+    public Observable<Reminder> setReminders(final Collection<Reminder> newReminders) {
+        return Observable.create(new Observable.OnSubscribe<Reminder>() {
+            @Override
+            public void call(Subscriber<? super Reminder> subscriber) {
+                if (subscriber.isUnsubscribed()) return;
+                BriteDatabase.Transaction transaction = mDb.newTransaction();
+                try {
+                    mDb.delete(Db.RemindersTable.TABLE_NAME, null);
+                    for (Reminder reminder : newReminders) {
+                        long result = mDb.insert(Db.RemindersTable.TABLE_NAME,
+                                Db.RemindersTable.toContentValues(reminder),
+                                SQLiteDatabase.CONFLICT_REPLACE);
+                        if (result >= 0) subscriber.onNext(reminder);
+                    }
+                    transaction.markSuccessful();
+                    subscriber.onCompleted();
+                } finally {
+                    transaction.end();
+                }
+            }
+        });
+    }
+
+    public Observable<List<Reminder>> getReminders() {
+        return mDb.createQuery(Db.RemindersTable.TABLE_NAME,
+                "SELECT * FROM " + Db.RemindersTable.TABLE_NAME)
+                .mapToList(new Func1<Cursor, Reminder>() {
+                    @Override
+                    public Reminder call(Cursor cursor) {
+                        return Db.RemindersTable.parseCursor(cursor);
+                    }
+                });
+    }
+
+    public Observable<Reminder> addReminders(final Reminder newReminder) {
+        return Observable.create(new Observable.OnSubscribe<Reminder>() {
+            @Override
+            public void call(Subscriber<? super Reminder> subscriber) {
+                if (subscriber.isUnsubscribed()) return;
+                BriteDatabase.Transaction transaction = mDb.newTransaction();
+                try {
+                    long result = mDb.insert(Db.RemindersTable.TABLE_NAME,
+                            Db.RemindersTable.toContentValues(newReminder),
+                            SQLiteDatabase.CONFLICT_FAIL);
+                    if (result >= 0) subscriber.onNext(newReminder);
+                    transaction.markSuccessful();
+                    subscriber.onCompleted();
+                } finally {
+                    transaction.end();
+                }
+            }
+        });
+    }
 }
