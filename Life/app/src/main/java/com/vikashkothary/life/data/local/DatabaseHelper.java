@@ -101,24 +101,4 @@ public class DatabaseHelper {
                     }
                 });
     }
-
-    public Observable<Reminder> addReminders(final Reminder newReminder) {
-        return Observable.create(new Observable.OnSubscribe<Reminder>() {
-            @Override
-            public void call(Subscriber<? super Reminder> subscriber) {
-                if (subscriber.isUnsubscribed()) return;
-                BriteDatabase.Transaction transaction = mDb.newTransaction();
-                try {
-                    long result = mDb.insert(Db.RemindersTable.TABLE_NAME,
-                            Db.RemindersTable.toContentValues(newReminder),
-                            SQLiteDatabase.CONFLICT_FAIL);
-                    if (result >= 0) subscriber.onNext(newReminder);
-                    transaction.markSuccessful();
-                    subscriber.onCompleted();
-                } finally {
-                    transaction.end();
-                }
-            }
-        });
-    }
 }
