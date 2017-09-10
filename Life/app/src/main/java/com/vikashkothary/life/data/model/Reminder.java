@@ -36,7 +36,7 @@ public abstract class Reminder implements Parcelable {
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder setId(long id);
+        public abstract Builder setId(int id);
 
         public abstract Builder setTitle(String title);
 

@@ -75,7 +75,7 @@ public class CreateReminderFragment extends BaseFragment implements CalendarDate
         switch (item.getItemId()) {
             case R.id.action_save:
                 Reminder r = Reminder.builder()
-                        .setMessage(mMessageEditText.getText().toString())
+                        .setTitle(mMessageEditText.getText().toString())
                         .setDatetime(mCalendar.getTime())
                         .build();
                 return false;

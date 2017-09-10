@@ -92,7 +92,7 @@ public class Db {
 
         public static Reminder parseCursor(Cursor cursor) {
             return Reminder.builder()
-                    .setId(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)))
+                    .setId(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)))
                     .setTitle(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)))
                     .setText(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TEXT)))
                     .setDatetime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATETIME))))
