@@ -3,8 +3,11 @@ package com.vikashkothary.life.injection.component;
 import com.vikashkothary.life.injection.PerActivity;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
-import com.vikashkothary.life.ui.creation.CreationActivity;
 import com.vikashkothary.life.ui.creation.CreateReminderFragment;
+import com.vikashkothary.life.ui.creation.CreationActivity;
+import com.vikashkothary.life.ui.login.LoginActivity;
+import com.vikashkothary.life.ui.login.LoginFragment;
+import com.vikashkothary.life.ui.login.RegisterFragment;
 import com.vikashkothary.life.ui.main.MainActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
@@ -25,6 +28,8 @@ public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
 
+    void inject(LoginActivity loginActivity);
+
     void inject(CreationActivity creationActivity);
 
     void inject(SettingsActivity settingsActivity);
@@ -32,9 +37,14 @@ public interface ActivityComponent {
     // Fragments
     void inject(RibotFragment ribotFragment);
 
+    void inject(LoginFragment loginFragment);
+
+    void inject(RegisterFragment registerFragment);
+
+    void inject(StreamFragment streamFragment);
+
     void inject(CreateReminderFragment creationFragment);
 
     void inject(SettingsFragment settingsFragment);
 
-    void inject(StreamFragment streamFragment);
 }
