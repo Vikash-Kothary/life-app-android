@@ -4,6 +4,7 @@ import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.local.DatabaseHelper;
 import com.vikashkothary.life.data.local.PreferencesHelper;
 import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.data.remote.RemindersService;
 import com.vikashkothary.life.data.remote.RibotsService;
 import com.vikashkothary.life.test.common.TestDataFactory;
 
@@ -41,11 +42,13 @@ public class DataManagerTest {
     PreferencesHelper mMockPreferencesHelper;
     @Mock
     RibotsService mMockRibotsService;
+    @Mock
+    RemindersService mMockRemindersService;
     private DataManager mDataManager;
 
     @Before
     public void setUp() {
-        mDataManager = new DataManager(mMockRibotsService, mMockPreferencesHelper,
+        mDataManager = new DataManager(mMockRibotsService, mMockRemindersService, mMockPreferencesHelper,
                 mMockDatabaseHelper);
     }
 

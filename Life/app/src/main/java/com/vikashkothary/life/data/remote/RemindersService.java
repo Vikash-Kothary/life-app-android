@@ -23,7 +23,7 @@ public interface RemindersService {
     /******** Helper class that sets up a new services *******/
     class Creator {
 
-        public static RemindersService newRibotsService() {
+        public static RemindersService newRemindersService() {
             Gson gson = new GsonBuilder()
                     .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")

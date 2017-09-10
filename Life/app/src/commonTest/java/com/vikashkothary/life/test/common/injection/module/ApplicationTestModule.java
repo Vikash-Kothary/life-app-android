@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.vikashkothary.life.data.DataManager;
+import com.vikashkothary.life.data.remote.RemindersService;
 import com.vikashkothary.life.data.remote.RibotsService;
 import com.vikashkothary.life.injection.ApplicationContext;
 
@@ -50,6 +51,12 @@ public class ApplicationTestModule {
     @Singleton
     RibotsService provideRibotsService() {
         return mock(RibotsService.class);
+    }
+
+    @Provides
+    @Singleton
+    RemindersService provideRemindersService() {
+        return mock(RemindersService.class);
     }
 
 }

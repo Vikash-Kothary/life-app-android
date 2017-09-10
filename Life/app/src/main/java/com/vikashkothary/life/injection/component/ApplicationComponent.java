@@ -7,6 +7,7 @@ import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.SyncService;
 import com.vikashkothary.life.data.local.DatabaseHelper;
 import com.vikashkothary.life.data.local.PreferencesHelper;
+import com.vikashkothary.life.data.remote.RemindersService;
 import com.vikashkothary.life.data.remote.RibotsService;
 import com.vikashkothary.life.injection.ApplicationContext;
 import com.vikashkothary.life.injection.module.ApplicationModule;
@@ -33,6 +34,8 @@ public interface ApplicationComponent {
     Application application();
 
     RibotsService ribotsService();
+
+    RemindersService remindersService();
 
     PreferencesHelper preferencesHelper();
 

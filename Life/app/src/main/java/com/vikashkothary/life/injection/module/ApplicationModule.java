@@ -3,6 +3,7 @@ package com.vikashkothary.life.injection.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.vikashkothary.life.data.remote.RemindersService;
 import com.vikashkothary.life.data.remote.RibotsService;
 import com.vikashkothary.life.injection.ApplicationContext;
 
@@ -39,4 +40,9 @@ public class ApplicationModule {
         return RibotsService.Creator.newRibotsService();
     }
 
+    @Provides
+    @Singleton
+    RemindersService provideRemindersService() {
+        return RemindersService.Creator.newRemindersService();
+    }
 }
