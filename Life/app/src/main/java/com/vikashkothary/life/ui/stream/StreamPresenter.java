@@ -1,7 +1,7 @@
 package com.vikashkothary.life.ui.stream;
 
 import com.vikashkothary.life.data.DataManager;
-import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.data.model.Reminder;
 import com.vikashkothary.life.ui.base.BasePresenter;
 import com.vikashkothary.life.util.RxUtil;
 
@@ -40,29 +40,29 @@ public class StreamPresenter extends BasePresenter<StreamMvpView> {
         if (mSubscription != null) mSubscription.unsubscribe();
     }
 
-    public void loadRibots() {
+    public void loadReminders() {
         checkViewAttached();
         RxUtil.unsubscribe(mSubscription);
-        mSubscription = mDataManager.getRibots()
+        mSubscription = mDataManager.getReminders()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<List<Ribot>>() {
+                .subscribe(new Subscriber<List<Reminder>>() {
                     @Override
                     public void onCompleted() {
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.e(e, "There was an error loading the ribots.");
+                        Timber.e(e, "There was an error loading the reminders.");
                         getMvpView().showError();
                     }
 
                     @Override
-                    public void onNext(List<Ribot> ribots) {
-                        if (ribots.isEmpty()) {
-                            getMvpView().showRibotsEmpty();
+                    public void onNext(List<Reminder> reminders) {
+                        if (reminders.isEmpty()) {
+                            getMvpView().showRemindersEmpty();
                         } else {
-                            getMvpView().showRibots(ribots);
+                            getMvpView().showReminders(reminders);
                         }
                     }
                 });

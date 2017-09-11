@@ -58,6 +58,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
+
+        StreamFragment.attachFragment(this);
     }
 
     @Override

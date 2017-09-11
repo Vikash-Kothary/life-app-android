@@ -126,7 +126,7 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
 
     @Override
     public void showError() {
-        DialogFactory.createGenericErrorDialog(getActivity(), getString(R.string.error_loading_ribots))
+        DialogFactory.createGenericErrorDialog(getActivity(), getString(R.string.error_loading_reminders))
                 .show();
         mSwipeToRefresh.setRefreshing(false);
     }
@@ -135,7 +135,7 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
     public void showRibotsEmpty() {
         mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
         mRibotsAdapter.notifyDataSetChanged();
-        Toast.makeText(getActivity(), R.string.empty_ribots, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.empty_reminders, Toast.LENGTH_LONG).show();
         mSwipeToRefresh.setRefreshing(false);
     }
 

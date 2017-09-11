@@ -41,9 +41,9 @@
     <string name="dialog_action_cancel">Cancel</string>
     <string name="dialog_error_title">Sorry</string>
 
-    <!-- Ribots -->
-    <string name="empty_ribots">There aren\'t any ribots</string>
-    <string name="error_loading_ribots">There was a problem loading the ribots</string>
+    <!-- Reminders -->
+    <string name="empty_reminders">There aren\'t any reminders</string>
+    <string name="error_loading_reminders">There was a problem loading the reminders</string>
 
     <!-- Settings -->
     <string name="preferences_category_one">Category 1</string>

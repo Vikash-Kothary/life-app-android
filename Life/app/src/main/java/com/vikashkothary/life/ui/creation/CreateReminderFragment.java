@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.vikashkothary.life.services.NotificationService.showNotification;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -75,10 +77,15 @@ public class CreateReminderFragment extends BaseFragment implements CalendarDate
         switch (item.getItemId()) {
             case R.id.action_save:
                 Reminder r = Reminder.builder()
+                        .setId(R.color.primary)
                         .setTitle(mMessageEditText.getText().toString())
+                        .setText(mCalendar.getTime().toString())
                         .setDatetime(mCalendar.getTime())
                         .build();
-                return false;
+//                scheduleNotification(getContext() , r.id(), r.notification(getContext()), mCalendar.getTimeInMillis());
+                showNotification(getContext() , r.id(), r.notification(getContext()));
+                getActivity().finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -101,7 +108,7 @@ public class CreateReminderFragment extends BaseFragment implements CalendarDate
             case R.id.button_time:
                 RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
                         .setOnTimeSetListener(CreateReminderFragment.this)
-                        .setStartTime(today.get(Calendar.HOUR), today.get(Calendar.MINUTE))
+                        .setStartTime(today.get(Calendar.HOUR_OF_DAY), today.get(Calendar.MINUTE))
                         .setDoneText("Yay")
                         .setCancelText("Nope")
                         .setThemeDark();
