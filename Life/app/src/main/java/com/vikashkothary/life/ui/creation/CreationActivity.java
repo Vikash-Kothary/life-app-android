@@ -57,6 +57,8 @@ public class CreationActivity extends BaseActivity {
                     return true;
                 }
                 return false;
+            case R.id.action_info:
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

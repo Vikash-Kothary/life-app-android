@@ -6,8 +6,15 @@
     <item
         android:id="@+id/action_new"
         android:icon="@drawable/ic_add_white_24dp"
-        android:orderInCategory="98"
+        android:orderInCategory="97"
         android:title="@string/action_new"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_info"
+        android:orderInCategory="98"
+        android:icon="@drawable/ic_info_white_24dp"
+        android:title="@string/action_info"
         app:showAsAction="ifRoom" />
 
     <item

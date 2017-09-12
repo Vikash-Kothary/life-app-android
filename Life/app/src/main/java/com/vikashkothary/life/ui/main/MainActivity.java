@@ -87,6 +87,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.action_new:
                 startCreation(this);
                 return true;
+            case R.id.action_info:
+                return true;
             case R.id.action_search:
                 return false;
             case R.id.action_settings:

@@ -29,6 +29,7 @@
     <string name="nav_nutrition">Nutrition</string>
 
     <!-- Menus -->
+    <string name="action_info">Info</string>
     <string name="action_settings">@string/title_activity_settings</string>
     <string name="action_new">@string/title_activity_creation</string>
     <string name="action_save">Save</string>
