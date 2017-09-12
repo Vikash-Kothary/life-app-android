@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
+import com.vikashkothary.life.ui.base.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,7 +15,9 @@ import butterknife.ButterKnife;
 public class CreationActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
+
+    private BaseFragment mFragment;
 
     public static void startCreation(Context context) {
         Intent intent = new Intent(context, CreationActivity.class);
@@ -28,11 +31,12 @@ public class CreationActivity extends BaseActivity {
         setContentView(R.layout.activity_base);
         ButterKnife.bind(this);
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 
-        CreationFragment.attachFragment(this);
+        mFragment = CreationFragment.newInstance();
+        mFragment.attachFragment(this);
     }
 
 }

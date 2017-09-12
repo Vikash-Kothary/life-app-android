@@ -43,9 +43,9 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
     @BindView(R.id.swipe_to_refresh)
     SwipeRefreshLayout mSwipeToRefresh;
 
-    public static void attachFragment(BaseActivity activity) {
+    public static StreamFragment newInstance() {
         StreamFragment fragment = new StreamFragment();
-        activity.setFragment(fragment);
+        return fragment;
     }
 
     @Override

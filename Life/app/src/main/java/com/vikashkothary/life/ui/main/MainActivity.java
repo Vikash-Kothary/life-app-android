@@ -14,8 +14,9 @@ import android.view.View;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
-import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.base.BaseFragment;
 import com.vikashkothary.life.ui.login.LoginActivity;
+import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.stream.StreamFragment;
 
 import butterknife.BindView;
@@ -32,6 +33,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     DrawerLayout mDrawer;
     @BindView(R.id.nav_view)
     NavigationView mNavigationView;
+
+    private BaseFragment mFragment;
 
     public static void startMain(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -59,7 +62,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         });
 
-        StreamFragment.attachFragment(this);
+        mFragment = StreamFragment.newInstance();
+        mFragment.attachFragment(this);
     }
 
     @Override
@@ -97,10 +101,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                StreamFragment.attachFragment(this);
+                if (!(mFragment instanceof StreamFragment)) {
+                    mFragment = StreamFragment.newInstance();
+                    mFragment.attachFragment(this);
+                }
                 break;
             case R.id.nav_level_physical:
-                RibotFragment.attachFragment(this);
+                if (!(mFragment instanceof RibotFragment)) {
+                    mFragment = RibotFragment.newInstance();
+                    mFragment.attachFragment(this);
+                }
                 break;
         }
         mDrawer.closeDrawer(GravityCompat.START);

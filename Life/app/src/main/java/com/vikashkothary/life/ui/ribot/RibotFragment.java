@@ -49,8 +49,8 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
      * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
      * only be set to false during testing.
      */
-    public static void attachFragment(BaseActivity activity) {
-        attachFragment(activity, true);
+    public static RibotFragment newInstance() {
+        return newInstance(true);
     }
 
     /**
@@ -58,12 +58,12 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
      * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
      * only be set to false during testing.
      */
-    public static void attachFragment(BaseActivity activity, boolean triggerDataSyncOnCreate) {
+    public static RibotFragment newInstance(boolean triggerDataSyncOnCreate) {
         RibotFragment fragment = new RibotFragment();
         Bundle args = new Bundle();
         args.putBoolean(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
         fragment.setArguments(args);
-        activity.setFragment(fragment);
+        return fragment;
     }
 
 

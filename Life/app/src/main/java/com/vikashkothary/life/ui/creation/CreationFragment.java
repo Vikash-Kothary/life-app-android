@@ -49,9 +49,9 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
     @BindView(R.id.button_time)
     Button mTimeButton;
 
-    public static void attachFragment(BaseActivity activity) {
+    public static CreationFragment newInstance() {
         CreationFragment fragment = new CreationFragment();
-        activity.setFragment(fragment);
+        return fragment;
     }
 
     @Override

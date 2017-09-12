@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.vikashkothary.life.LifeApplication;
-import com.vikashkothary.life.R;
 import com.vikashkothary.life.injection.component.ActivityComponent;
 import com.vikashkothary.life.injection.component.ConfigPersistentComponent;
 import com.vikashkothary.life.injection.component.DaggerConfigPersistentComponent;
@@ -69,11 +68,5 @@ public class BaseActivity extends AppCompatActivity {
 
     public ActivityComponent activityComponent() {
         return mActivityComponent;
-    }
-
-    public void setFragment(BaseFragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
     }
 }
