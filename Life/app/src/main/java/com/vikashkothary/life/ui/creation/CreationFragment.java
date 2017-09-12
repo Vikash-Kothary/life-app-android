@@ -2,9 +2,6 @@ package com.vikashkothary.life.ui.creation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -58,7 +55,6 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) getActivity()).activityComponent().inject(this);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -70,32 +66,6 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
         getActivity().setTitle(R.string.title_fragment_creation);
 
         return fragmentView;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.options_creation, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_save:
-                Reminder r = Reminder.builder()
-                        .setId(R.color.primary)
-                        .setTitle(mMessageEditText.getText().toString())
-                        .setText(mCalendar.getTime().toString())
-                        .setDatetime(mCalendar.getTime())
-                        .build();
-//                mDataManager.addReminder(r);
-//                scheduleNotification(getContext() , r.id(), r.notification(getContext()), mCalendar.getTimeInMillis());
-                showNotification(getContext() , r.id(), r.notification(getContext()));
-                getActivity().finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @OnClick({R.id.button_date, R.id.button_time})
@@ -122,6 +92,18 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
                 rtpd.show(getFragmentManager(), FRAG_TAG_TIME_PICKER);
                 break;
         }
+    }
+
+    public void saveReminder(){
+        Reminder r = Reminder.builder()
+                .setId(R.color.primary)
+                .setTitle(mMessageEditText.getText().toString())
+                .setText(mCalendar.getTime().toString())
+                .setDatetime(mCalendar.getTime())
+                .build();
+//                mDataManager.addReminder(r);
+//                scheduleNotification(getContext() , r.id(), r.notification(getContext()), mCalendar.getTimeInMillis());
+        showNotification(getContext() , r.id(), r.notification(getContext()));
     }
 
     @Override
