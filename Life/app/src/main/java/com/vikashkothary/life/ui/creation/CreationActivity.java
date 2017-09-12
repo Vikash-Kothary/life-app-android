@@ -32,7 +32,7 @@ public class CreationActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 
-        CreateReminderFragment.attachFragment(this);
+        CreationFragment.attachFragment(this);
     }
 
 }

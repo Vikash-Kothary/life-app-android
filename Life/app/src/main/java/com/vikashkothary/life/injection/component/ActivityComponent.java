@@ -3,7 +3,7 @@ package com.vikashkothary.life.injection.component;
 import com.vikashkothary.life.injection.PerActivity;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
-import com.vikashkothary.life.ui.creation.CreateReminderFragment;
+import com.vikashkothary.life.ui.creation.CreationFragment;
 import com.vikashkothary.life.ui.creation.CreationActivity;
 import com.vikashkothary.life.ui.login.LoginActivity;
 import com.vikashkothary.life.ui.login.LoginFragment;
@@ -43,7 +43,7 @@ public interface ActivityComponent {
 
     void inject(StreamFragment streamFragment);
 
-    void inject(CreateReminderFragment creationFragment);
+    void inject(CreationFragment creationFragment);
 
     void inject(SettingsFragment settingsFragment);
 
