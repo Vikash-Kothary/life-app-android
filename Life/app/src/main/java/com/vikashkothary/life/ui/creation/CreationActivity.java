@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseFragment;
+import com.vikashkothary.life.util.DialogFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +59,7 @@ public class CreationActivity extends BaseActivity {
                 }
                 return false;
             case R.id.action_info:
+                DialogFactory.createSimpleOkErrorDialog(this, "Creation", "Create a reminder").show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

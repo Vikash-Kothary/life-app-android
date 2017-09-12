@@ -32,6 +32,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.vikashkothary.life.R;
+import com.vikashkothary.life.util.DialogFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,11 +115,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_info:
+                displayInfo();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void displayInfo() {
+        DialogFactory.createGenericInfoDialog(this, R.string.info_login).show();
+    }
+
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;

@@ -18,6 +18,7 @@ import com.vikashkothary.life.ui.base.BaseFragment;
 import com.vikashkothary.life.ui.login.LoginActivity;
 import com.vikashkothary.life.ui.ribot.RibotFragment;
 import com.vikashkothary.life.ui.stream.StreamFragment;
+import com.vikashkothary.life.util.DialogFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -88,6 +89,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 startCreation(this);
                 return true;
             case R.id.action_info:
+                displayInfo();
                 return true;
             case R.id.action_search:
                 return false;
@@ -117,5 +119,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
         mDrawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void displayInfo() {
+        if (mFragment instanceof StreamFragment) {
+            DialogFactory.createGenericInfoDialog(this, R.string.info_stream).show();
+        }
     }
 }

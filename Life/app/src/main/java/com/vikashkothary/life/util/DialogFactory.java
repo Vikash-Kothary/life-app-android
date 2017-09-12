@@ -50,4 +50,16 @@ public final class DialogFactory {
         return createProgressDialog(context, context.getString(messageResource));
     }
 
+    public static Dialog createGenericInfoDialog(Context context, String message) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
+                .setTitle(context.getString(R.string.dialog_info_title))
+                .setMessage(message)
+                .setNegativeButton(R.string.dialog_action_ok, null);
+        return alertDialog.create();
+    }
+
+    public static Dialog createGenericInfoDialog(Context context, @StringRes int messageResource) {
+        return createGenericInfoDialog(context, context.getString(messageResource));
+    }
+
 }

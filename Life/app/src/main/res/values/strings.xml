@@ -41,8 +41,12 @@
     <string name="dialog_action_ok">OK</string>
     <string name="dialog_action_cancel">Cancel</string>
     <string name="dialog_error_title">Sorry</string>
+    <string name="dialog_info_title">Info</string>
 
-    <!-- Reminders -->
+    <!-- Main -->
+    <string name="info_stream">See a list of all remaining tasks.</string>
+
+    <!-- Stream -->
     <string name="empty_reminders">There aren\'t any reminders</string>
     <string name="error_loading_reminders">There was a problem loading the reminders</string>
 
@@ -64,11 +68,13 @@
     <string name="preferences_checkbox_title">CheckBox Preference</string>
     <string name="preferences_checkbox_summ">CheckBox Summary</string>
 
-    <!-- New -->
+    <!-- Creation -->
+    <string name="info_creation">Create tasks that need to be done, and we\'ll remind you when to do them.</string>
     <string name="calendar_date_picker_result_values">Year: %1$d\\nMonth: %2$d\\nDay: %3$d</string>
     <string name="radial_time_picker_result_value">%1$d:%2$d</string>
 
     <!-- Login -->
+    <string name="info_login">Login to enjoy features like backup, multi device sync, etc.</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="error_invalid_email">This email address is invalid</string>
