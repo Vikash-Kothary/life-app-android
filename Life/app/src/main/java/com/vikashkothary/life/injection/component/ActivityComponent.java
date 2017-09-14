@@ -3,6 +3,8 @@ package com.vikashkothary.life.injection.component;
 import com.vikashkothary.life.injection.PerActivity;
 import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
+import com.vikashkothary.life.ui.about.AboutActivity;
+import com.vikashkothary.life.ui.about.AboutFragment;
 import com.vikashkothary.life.ui.creation.CreationFragment;
 import com.vikashkothary.life.ui.creation.CreationActivity;
 import com.vikashkothary.life.ui.login.LoginActivity;
@@ -34,6 +36,8 @@ public interface ActivityComponent {
 
     void inject(SettingsActivity settingsActivity);
 
+    void inject(AboutActivity aboutActivity);
+
     // Fragments
     void inject(RibotFragment ribotFragment);
 
@@ -47,4 +51,5 @@ public interface ActivityComponent {
 
     void inject(SettingsFragment settingsFragment);
 
+    void inject(AboutFragment aboutFragment);
 }

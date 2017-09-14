@@ -23,6 +23,7 @@ import com.vikashkothary.life.util.DialogFactory;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.vikashkothary.life.ui.about.AboutActivity.startAbout;
 import static com.vikashkothary.life.ui.creation.CreationActivity.startCreation;
 import static com.vikashkothary.life.ui.settings.SettingsActivity.startSettings;
 
@@ -95,6 +96,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 return false;
             case R.id.action_settings:
                 startSettings(this);
+                return true;
+            case R.id.action_about:
+                startAbout(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
