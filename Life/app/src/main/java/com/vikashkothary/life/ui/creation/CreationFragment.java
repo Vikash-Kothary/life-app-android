@@ -94,16 +94,16 @@ public class CreationFragment extends BaseFragment implements CalendarDatePicker
         }
     }
 
-    public void saveReminder(){
+    public void saveReminder() {
         Reminder r = Reminder.builder()
                 .setId(R.color.primary)
                 .setTitle(mMessageEditText.getText().toString())
-                .setText(mCalendar.getTime().toString())
+                .setText(mMessageEditText.getText().toString())
                 .setDatetime(mCalendar.getTime())
                 .build();
-//                mDataManager.addReminder(r);
+        mDataManager.addReminders(r);
 //                scheduleNotification(getContext() , r.id(), r.notification(getContext()), mCalendar.getTimeInMillis());
-        showNotification(getContext() , r.id(), r.notification(getContext()));
+        showNotification(getContext(), r.id(), r.notification(getContext()));
     }
 
     @Override

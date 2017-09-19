@@ -7,6 +7,7 @@ import com.vikashkothary.life.data.model.Ribot;
 import com.vikashkothary.life.data.remote.RemindersService;
 import com.vikashkothary.life.data.remote.RibotsService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -50,18 +51,25 @@ public class DataManager {
         return mDatabaseHelper.getRibots().distinct();
     }
 
+    public List<Reminder> mReminders = new ArrayList<>();
+
     public Observable<Reminder> setReminders() {
-        return mRemindersService.getReminders()
+        return Observable.just(mReminders)
                 .concatMap(new Func1<List<Reminder>, Observable<Reminder>>() {
                     @Override
-                    public Observable<Reminder> call(List<Reminder> ribots) {
-                        return mDatabaseHelper.setReminders(ribots);
+                    public Observable<Reminder> call(List<Reminder> reminders) {
+                        return mDatabaseHelper.setReminders(reminders);
                     }
                 });
     }
 
     public Observable<List<Reminder>> getReminders() {
-        return mDatabaseHelper.getReminders().distinct();
+        return Observable.just(mReminders);
+
+//        return mDatabaseHelper.getReminders().distinct();
     }
 
+    public void addReminders(Reminder reminder) {
+        mReminders.add(reminder);
+    }
 }

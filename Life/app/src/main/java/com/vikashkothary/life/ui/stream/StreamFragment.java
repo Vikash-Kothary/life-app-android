@@ -77,6 +77,7 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
         mSwipeToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                mStreamPresenter.mDataManager.setReminders();
                 mStreamPresenter.loadReminders();
             }
         });
@@ -95,12 +96,14 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
     public void onDestroyView() {
         super.onDestroyView();
         mStreamPresenter.detachView();
+        mStreamPresenter.mDataManager.setReminders();
     }
 
     /***** MVP View methods implementation *****/
 
     @Override
     public void showReminders(List<Reminder> reminders) {
+        mStreamPresenter.mDataManager.mReminders = reminders;
         mReminderAdapter.setReminders(reminders);
         mReminderAdapter.notifyDataSetChanged();
         mSwipeToRefresh.setRefreshing(false);

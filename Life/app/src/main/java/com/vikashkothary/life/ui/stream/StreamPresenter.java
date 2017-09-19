@@ -21,7 +21,7 @@ import timber.log.Timber;
 
 public class StreamPresenter extends BasePresenter<StreamMvpView> {
 
-    private final DataManager mDataManager;
+    public final DataManager mDataManager;
     private Subscription mSubscription;
 
     @Inject
