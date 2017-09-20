@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import rx.Observer;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -38,6 +39,29 @@ public class StreamPresenter extends BasePresenter<StreamMvpView> {
     public void detachView() {
         super.detachView();
         if (mSubscription != null) mSubscription.unsubscribe();
+    }
+
+    public void syncReminders() {
+        checkViewAttached();
+        RxUtil.unsubscribe(mSubscription);
+        mSubscription = mDataManager.setReminders()
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Reminder>() {
+                    @Override
+                    public void onCompleted() {
+                        Timber.i("Synced successfully!");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.w(e, "Error syncing.");
+
+                    }
+
+                    @Override
+                    public void onNext(Reminder reminder) {
+                    }
+                });
     }
 
     public void loadReminders() {

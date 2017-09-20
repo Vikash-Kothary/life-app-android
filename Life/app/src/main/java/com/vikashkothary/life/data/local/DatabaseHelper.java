@@ -92,13 +92,27 @@ public class DatabaseHelper {
     }
 
     public Observable<List<Reminder>> getReminders() {
-        return mDb.createQuery(Db.RemindersTable.TABLE_NAME,
-                "SELECT * FROM " + Db.RemindersTable.TABLE_NAME)
+        return mDb.createQuery(Db.RibotProfileTable.TABLE_NAME,
+                "SELECT * FROM " + Db.RibotProfileTable.TABLE_NAME)
                 .mapToList(new Func1<Cursor, Reminder>() {
                     @Override
                     public Reminder call(Cursor cursor) {
-                        return Db.RemindersTable.parseCursor(cursor);
+                        Ribot r = Ribot.create(Db.RibotProfileTable.parseCursor(cursor));
+                        return Reminder.builder()
+                                .setId(0)
+                                .setTitle(r.profile().name().first())
+                                .setText(r.profile().name().last())
+                                .setDatetime(r.profile().dateOfBirth())
+                                .build();
                     }
                 });
+//        return mDb.createQuery(Db.RemindersTable.TABLE_NAME,
+//                "SELECT * FROM " + Db.RemindersTable.TABLE_NAME)
+//                .mapToList(new Func1<Cursor, Reminder>() {
+//                    @Override
+//                    public Reminder call(Cursor cursor) {
+//                        return Db.RemindersTable.parseCursor(cursor);
+//                    }
+//                });
     }
 }

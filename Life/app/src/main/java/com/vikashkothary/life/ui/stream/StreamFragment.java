@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.vikashkothary.life.R;
+import com.vikashkothary.life.data.SyncService;
 import com.vikashkothary.life.data.model.Reminder;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseFragment;
@@ -57,6 +58,8 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
 //        if (getArguments().getBoolean(EXTRA_TRIGGER_SYNC_FLAG, false)) {
 //            getActivity().startService(SyncService.getStartIntent(getActivity()));
 //        }
+        getActivity().startService(SyncService.getStartIntent(getActivity()));
+
     }
 
 
@@ -77,7 +80,6 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
         mSwipeToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mStreamPresenter.mDataManager.setReminders();
                 mStreamPresenter.loadReminders();
             }
         });
@@ -95,15 +97,15 @@ public class StreamFragment extends BaseFragment implements StreamMvpView {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+//        mStreamPresenter.syncReminders();
         mStreamPresenter.detachView();
-        mStreamPresenter.mDataManager.setReminders();
+
     }
 
     /***** MVP View methods implementation *****/
 
     @Override
     public void showReminders(List<Reminder> reminders) {
-        mStreamPresenter.mDataManager.mReminders = reminders;
         mReminderAdapter.setReminders(reminders);
         mReminderAdapter.notifyDataSetChanged();
         mSwipeToRefresh.setRefreshing(false);
