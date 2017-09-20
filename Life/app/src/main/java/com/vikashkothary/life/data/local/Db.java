@@ -35,6 +35,7 @@ public class Db {
                         + ", " + COLUMN_AVATAR + " TEXT"
                         + ", " + COLUMN_BIO + " TEXT"
                         + ");";
+        public static final String DELETE = "DROP TABLE IF EXISTS" + TABLE_NAME;
 
         public static ContentValues toContentValues(Profile profile) {
             ContentValues values = new ContentValues();
@@ -80,6 +81,8 @@ public class Db {
                         + ", " + COLUMN_TEXT + " TEXT NOT NULL"
                         + ", " + COLUMN_DATETIME + " INTEGER NOT NULL"
                         + ");";
+        public static final String DELETE = "DROP TABLE IF EXISTS" + TABLE_NAME;
+
 
         public static ContentValues toContentValues(Reminder reminder) {
             ContentValues values = new ContentValues();

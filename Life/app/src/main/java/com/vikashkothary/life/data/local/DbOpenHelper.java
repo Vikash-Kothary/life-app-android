@@ -42,6 +42,19 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if (oldVersion >= newVersion) {
+            return;
+        }
+        db.beginTransaction();
+        try {
+            db.execSQL(Db.RibotProfileTable.DELETE);
+            db.execSQL(Db.RemindersTable.DELETE);
+            //Add other tables here
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        onCreate(db);
     }
 
 }
