@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseSettingsFragment;
 import com.vikashkothary.life.ui.settings.general.GeneralFragment;
+import com.vikashkothary.life.ui.settings.permissions.PermissionsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,4 +48,21 @@ public class SettingsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mFragment instanceof GeneralFragment) {
+            ((GeneralFragment) mFragment).handleOptionsItem(item.getItemId());
+            return true;
+        } else if (mFragment instanceof PermissionsFragment) {
+            ((PermissionsFragment) mFragment).handleOptionsItem(item.getItemId());
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
