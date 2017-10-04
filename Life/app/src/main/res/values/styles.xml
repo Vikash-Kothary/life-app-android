@@ -20,14 +20,17 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppTheme.Login" parent="AppTheme">
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:textColorPrimary">@color/primary</item>
-        <item name="android:textColorSecondary">@color/primary</item>
+    <style name="AppTheme.Login" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/primary</item>
 
-        <item name="colorControlNormal">@color/primary</item>
-        <item name="colorControlActivated">@color/primary</item>
-        <item name="colorControlHighlight">@color/primary</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text</item>
+
+        <item name="colorControlNormal">@color/text</item>
+        <item name="colorControlActivated">@color/text</item>
+        <item name="colorControlHighlight">@color/text</item>
+        <item name="android:textColorHint">@color/text</item>
     </style>
 
     <style name="AppTheme.Creation" parent="AppTheme.NoActionBar">
