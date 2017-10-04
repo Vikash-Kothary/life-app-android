@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
+import com.vikashkothary.life.ui.base.BaseSettingsFragment;
+import com.vikashkothary.life.ui.settings.general.GeneralFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +18,8 @@ import butterknife.ButterKnife;
  */
 
 public class SettingsActivity extends BaseActivity {
+
+    private BaseSettingsFragment mFragment;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -36,9 +40,9 @@ public class SettingsActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, SettingsFragment.newInstance())
-                    .commit();
+            mFragment = GeneralFragment.newInstance();
+            mFragment.attachFragment(this);
         }
     }
+
 }

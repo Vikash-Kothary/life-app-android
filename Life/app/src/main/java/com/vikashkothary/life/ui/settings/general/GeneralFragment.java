@@ -1,15 +1,13 @@
-package com.vikashkothary.life.ui.settings;
+package com.vikashkothary.life.ui.settings.general;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
+import com.vikashkothary.life.ui.base.BaseSettingsFragment;
 
 /**
  * The Settings Fragment which shows the Preferences as a List and handles the Dialogs for the
@@ -18,10 +16,10 @@ import com.vikashkothary.life.ui.base.BaseActivity;
  * @author Vikash Kothary
  */
 
-public class SettingsFragment extends PreferenceFragmentCompat {
+public class GeneralFragment extends BaseSettingsFragment {
 
-    public static SettingsFragment newInstance() {
-        SettingsFragment fragment = new SettingsFragment();
+    public static GeneralFragment newInstance() {
+        GeneralFragment fragment = new GeneralFragment();
         return fragment;
     }
 
@@ -37,9 +35,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.app_preference);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onDisplayPreferenceDialog(Preference pref) {
 
@@ -79,6 +74,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 //            // Dialog creation could not be handled here. Try with the super method.
 //            super.onDisplayPreferenceDialog(preference);
 //        }
+
+    }
+
+    public void handleOptionsItem(int itemId) {
 
     }
 }

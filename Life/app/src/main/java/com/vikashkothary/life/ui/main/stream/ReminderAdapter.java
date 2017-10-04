@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.stream;
+package com.vikashkothary.life.ui.main.stream;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

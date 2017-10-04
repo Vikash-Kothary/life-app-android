@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.ribot;
+package com.vikashkothary.life.ui.main.ribot;
 
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.model.Ribot;

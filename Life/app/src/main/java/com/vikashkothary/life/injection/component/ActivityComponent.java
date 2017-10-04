@@ -5,16 +5,16 @@ import com.vikashkothary.life.injection.module.ActivityModule;
 import com.vikashkothary.life.ui.LauncherActivity;
 import com.vikashkothary.life.ui.about.AboutActivity;
 import com.vikashkothary.life.ui.about.AboutFragment;
-import com.vikashkothary.life.ui.creation.CreationFragment;
 import com.vikashkothary.life.ui.creation.CreationActivity;
-import com.vikashkothary.life.ui.login.LoginActivity;
-import com.vikashkothary.life.ui.login.LoginFragment;
-import com.vikashkothary.life.ui.login.RegisterFragment;
+import com.vikashkothary.life.ui.creation.CreationFragment;
 import com.vikashkothary.life.ui.main.MainActivity;
-import com.vikashkothary.life.ui.ribot.RibotFragment;
+import com.vikashkothary.life.ui.main.ribot.RibotFragment;
 import com.vikashkothary.life.ui.settings.SettingsActivity;
-import com.vikashkothary.life.ui.settings.SettingsFragment;
-import com.vikashkothary.life.ui.stream.StreamFragment;
+import com.vikashkothary.life.ui.settings.general.GeneralFragment;
+import com.vikashkothary.life.ui.main.stream.StreamFragment;
+import com.vikashkothary.life.ui.login.LoginActivity;
+import com.vikashkothary.life.ui.login.login.LogInFragment;
+import com.vikashkothary.life.ui.login.register.RegisterFragment;
 
 import dagger.Subcomponent;
 
@@ -41,7 +41,7 @@ public interface ActivityComponent {
     // Fragments
     void inject(RibotFragment ribotFragment);
 
-    void inject(LoginFragment loginFragment);
+    void inject(LogInFragment loginFragment);
 
     void inject(RegisterFragment registerFragment);
 
@@ -49,7 +49,7 @@ public interface ActivityComponent {
 
     void inject(CreationFragment creationFragment);
 
-    void inject(SettingsFragment settingsFragment);
+    void inject(GeneralFragment settingsFragment);
 
     void inject(AboutFragment aboutFragment);
 }

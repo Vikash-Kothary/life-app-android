@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.ribot;
+package com.vikashkothary.life.ui.main.stream;
 
 
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.vikashkothary.life.R;
 import com.vikashkothary.life.data.SyncService;
-import com.vikashkothary.life.data.model.Ribot;
+import com.vikashkothary.life.data.model.Reminder;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseFragment;
 import com.vikashkothary.life.util.DialogFactory;
@@ -29,43 +29,25 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RibotFragment extends BaseFragment implements RibotMvpView {
+public class StreamFragment extends BaseFragment implements StreamMvpView {
 
     private static final String EXTRA_TRIGGER_SYNC_FLAG =
-            "com.vikashkothary.life.ui.ribot.RibotFragment.EXTRA_TRIGGER_SYNC_FLAG";
+            "com.vikashkothary.life.ui.ribot.StreamFragment.EXTRA_TRIGGER_SYNC_FLAG";
 
     @Inject
-    RibotPresenter mRibotPresenter;
+    StreamPresenter mStreamPresenter;
     @Inject
-    RibotsAdapter mRibotsAdapter;
+    ReminderAdapter mReminderAdapter;
 
-    @BindView(R.id.recycler_view_ribot)
-    RecyclerView mRibotRecycler;
+    @BindView(R.id.recycler_view_reminder)
+    RecyclerView mStreamRecycler;
     @BindView(R.id.swipe_to_refresh)
     SwipeRefreshLayout mSwipeToRefresh;
 
-    /**
-     * Return an Intent to start this Activity.
-     * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
-     * only be set to false during testing.
-     */
-    public static RibotFragment newInstance() {
-        return newInstance(true);
-    }
-
-    /**
-     * Return an Intent to start this Activity.
-     * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
-     * only be set to false during testing.
-     */
-    public static RibotFragment newInstance(boolean triggerDataSyncOnCreate) {
-        RibotFragment fragment = new RibotFragment();
-        Bundle args = new Bundle();
-        args.putBoolean(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
-        fragment.setArguments(args);
+    public static StreamFragment newInstance() {
+        StreamFragment fragment = new StreamFragment();
         return fragment;
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,32 +55,35 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
         setRetainInstance(true);
         ((BaseActivity) getActivity()).activityComponent().inject(this);
 
-        if (getArguments().getBoolean(EXTRA_TRIGGER_SYNC_FLAG, true)) {
-            getActivity().startService(SyncService.getStartIntent(getActivity()));
-        }
+//        if (getArguments().getBoolean(EXTRA_TRIGGER_SYNC_FLAG, false)) {
+//            getActivity().startService(SyncService.getStartIntent(getActivity()));
+//        }
+        getActivity().startService(SyncService.getStartIntent(getActivity()));
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_ribot, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_stream, container, false);
         ButterKnife.bind(this, fragmentView);
 
-        getActivity().setTitle("Ribots");
+        getActivity().setTitle("Reminders");
 
-        mRibotRecycler.setHasFixedSize(true);
-        mRibotRecycler.setAdapter(mRibotsAdapter);
-        mRibotRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mStreamRecycler.setHasFixedSize(true);
+        mStreamRecycler.setAdapter(mReminderAdapter);
+        mStreamRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mRibotPresenter.attachView(this);
+        mStreamPresenter.attachView(this);
         mSwipeToRefresh.setColorSchemeResources(R.color.primary);
         mSwipeToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mRibotPresenter.loadRibots();
+                mStreamPresenter.loadReminders();
             }
         });
+
 
         return fragmentView;
     }
@@ -106,21 +91,23 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
     @Override
     public void onStart() {
         super.onStart();
-        mRibotPresenter.loadRibots();
+        mStreamPresenter.loadReminders();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mRibotPresenter.detachView();
+//        mStreamPresenter.syncReminders();
+        mStreamPresenter.detachView();
+
     }
 
     /***** MVP View methods implementation *****/
 
     @Override
-    public void showRibots(List<Ribot> ribots) {
-        mRibotsAdapter.setRibots(ribots);
-        mRibotsAdapter.notifyDataSetChanged();
+    public void showReminders(List<Reminder> reminders) {
+        mReminderAdapter.setReminders(reminders);
+        mReminderAdapter.notifyDataSetChanged();
         mSwipeToRefresh.setRefreshing(false);
     }
 
@@ -132,9 +119,9 @@ public class RibotFragment extends BaseFragment implements RibotMvpView {
     }
 
     @Override
-    public void showRibotsEmpty() {
-        mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
-        mRibotsAdapter.notifyDataSetChanged();
+    public void showRemindersEmpty() {
+        mReminderAdapter.setReminders(Collections.<Reminder>emptyList());
+        mReminderAdapter.notifyDataSetChanged();
         Toast.makeText(getActivity(), R.string.empty_reminders, Toast.LENGTH_LONG).show();
         mSwipeToRefresh.setRefreshing(false);
     }

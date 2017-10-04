@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.stream;
+package com.vikashkothary.life.ui.main.stream;
 
 import com.vikashkothary.life.data.DataManager;
 import com.vikashkothary.life.data.model.Reminder;

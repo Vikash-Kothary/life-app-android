@@ -1,4 +1,4 @@
-package com.vikashkothary.life.ui.settings;
+package com.vikashkothary.life.ui.settings.general;
 
 import android.os.Build;
 import android.os.Bundle;
