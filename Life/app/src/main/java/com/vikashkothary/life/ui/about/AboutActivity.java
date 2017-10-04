@@ -39,7 +39,7 @@ public class AboutActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_tabbed);
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_info:
-                DialogFactory.createGenericInfoDialog(this, R.string.info_about);
+                DialogFactory.createInfoDialog(this, R.string.info_about);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
