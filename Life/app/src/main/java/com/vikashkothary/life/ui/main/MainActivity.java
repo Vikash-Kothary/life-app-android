@@ -16,8 +16,8 @@ import com.vikashkothary.life.R;
 import com.vikashkothary.life.ui.base.BaseActivity;
 import com.vikashkothary.life.ui.base.BaseFragment;
 import com.vikashkothary.life.ui.login.LoginActivity;
-import com.vikashkothary.life.ui.ribot.RibotFragment;
-import com.vikashkothary.life.ui.stream.StreamFragment;
+import com.vikashkothary.life.ui.main.ribot.RibotFragment;
+import com.vikashkothary.life.ui.main.stream.StreamFragment;
 import com.vikashkothary.life.util.DialogFactory;
 
 import butterknife.BindView;
@@ -85,12 +85,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO: Move to Fragments (returns true if handled)
         switch (item.getItemId()) {
             case R.id.action_new:
                 startCreation(this);
                 return true;
             case R.id.action_info:
-                displayInfo();
+                if (mFragment instanceof StreamFragment) {
+                    DialogFactory.createInfoDialog(this, R.string.info_stream).show();
+                }
                 return true;
             case R.id.action_search:
                 return false;
@@ -123,11 +126,5 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
         mDrawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void displayInfo() {
-        if (mFragment instanceof StreamFragment) {
-            DialogFactory.createGenericInfoDialog(this, R.string.info_stream).show();
-        }
     }
 }

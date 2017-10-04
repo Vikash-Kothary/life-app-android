@@ -50,7 +50,7 @@ public final class DialogFactory {
         return createProgressDialog(context, context.getString(messageResource));
     }
 
-    public static Dialog createGenericInfoDialog(Context context, String message) {
+    public static Dialog createInfoDialog(Context context, String message) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.dialog_info_title))
                 .setMessage(message)
@@ -58,8 +58,8 @@ public final class DialogFactory {
         return alertDialog.create();
     }
 
-    public static Dialog createGenericInfoDialog(Context context, @StringRes int messageResource) {
-        return createGenericInfoDialog(context, context.getString(messageResource));
+    public static Dialog createInfoDialog(Context context, @StringRes int messageResource) {
+        return createInfoDialog(context, context.getString(messageResource));
     }
 
 }
